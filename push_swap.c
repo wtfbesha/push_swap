@@ -13,7 +13,8 @@
 #include "push_swap.h"
 
 void push_swap(char *str) {}
-/*
+
+// imagine i access my ft_putchar_fd  ;)
 #include <stdio.h>
 int main(void)
 {
@@ -21,4 +22,3 @@ int main(void)
     ft_atoi("543");
     return (0);
 }
-*/
