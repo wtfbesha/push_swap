@@ -4,4 +4,7 @@
 ## description
 when given a set of integers the program will sort the intergers in the right order and print them.
 ## instructions
+
 ## Resourcess
+https://en.wikipedia.org/wiki/Merge_sort
+https://en.wikipedia.org/wiki/Sorting_algorithm
