@@ -34,6 +34,7 @@ int *ft_sort(int *list, int size)
     
 }
 
+/*
 int main(int argc, char *argv[])
 {
     int *list;
@@ -49,3 +50,4 @@ int main(int argc, char *argv[])
             ft_putchar('c')
     return (0);
 }
+*/

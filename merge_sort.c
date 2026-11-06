@@ -76,6 +76,7 @@ int *merge_sort(int *list1, int *list2)
     return new_list;
 }
 
+/*
 #include <stdlib.h>
 #include <stdio.h>
 int main()
@@ -91,3 +92,4 @@ int main()
 
     printf("%d", res);
 }
+*/
