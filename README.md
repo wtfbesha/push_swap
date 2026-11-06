@@ -1,1 +1,1 @@
-push swap
+push swa   s                            gfghksp  
