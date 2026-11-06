@@ -1,10 +1,8 @@
 #include "push_swap.h"
-
-void    ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
+#include <stdio.h>
 int main(void)
 {
-ft_putchar('a');
+    ft_putchar_fd('c', 1);
+    ft_atoi("543");
+    return (0);
 }

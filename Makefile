@@ -14,15 +14,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-simple: fclean
-	$(CC) $(CFLAGS) simple.c -o $(NAME)
-
-medium: fclean
-	$(CC) $(CFLAGS) medium.c -o $(NAME)
-
-complex: fclean
-	$(CC) $(CFLAGS) complex.c -o $(NAME)
-
 clean:
 	$(RM) $(OBJS)
 
@@ -31,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re simple medium complex
+.PHONY: all clean fclean re 
