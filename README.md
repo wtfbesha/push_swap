@@ -8,3 +8,13 @@ when given a set of integers the program will sort the intergers in the right or
 ## Resourcess
 https://en.wikipedia.org/wiki/Merge_sort
 https://en.wikipedia.org/wiki/Sorting_algorithm
+
+
+quadratic time complextity algorithm
+
+
+sub-quadratic time complexity
+subquadratic time
+
+
+logarithmic exponential algorithm
