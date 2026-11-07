@@ -10,18 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include <stdio.h>
+# include <stdlib.h>
 # include "libft/libft.h"
-# include <string.h>
 
-
-int *ft_sort(int *list, int size);
-int *merge_sort(int *list1, int *list2);
-void push_swap(char *str);
+int *ft_buble_sort();
+int *ft_block_based_sort();
+int *merge_sort();
+void push_swap() {}
 
 #endif

@@ -2,19 +2,12 @@
 *This project has been created as part of the 42 curriculum by neric and mtorfs.*
 
 ## description
-when given a set of integers the program will sort the intergers in the right order and print them.
 ## instructions
-
 ## Resourcess
 https://en.wikipedia.org/wiki/Merge_sort
 https://en.wikipedia.org/wiki/Sorting_algorithm
 
 
-quadratic time complextity algorithm
-
-
-sub-quadratic time complexity
-subquadratic time
-
-
-logarithmic exponential algorithm
+Bubble sort adaptation — O(n²)
+Block-based partitioning — O(n√n)
+Merge sort using two stacks — O(n log n)

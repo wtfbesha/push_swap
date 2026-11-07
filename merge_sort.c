@@ -10,71 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-/*
-    sa (swap a):
-    sa (swap b):
-
-    ss:
-
-
-
-    pa (push a):
-    pb (push b):
-
-
-
-    ra (rotate a):
-    rb (rotate b):
-
-    rr: 
-
-
-    rra (reverse rotate a):
-    rrb (reverse rotate b):
-    rrr:
-
-
-
-    //////////////////////////////////
-
-    disorder = 0;
-
-    if (disorder)
-    {
-        // right order (less error)
-    }
-
-    if (disorder = 1)
-    {
-        // worst possible disorder (more errors)
-    }
-
-
-    // function compute_disorder(stack a):
-    //     mistakes = 0
-    //     total_pairs = 0
-    //     for i from 0 to size(a)-1:
-    //         for j from i+1 to size(a)-1:
-    //             total_pairs += 1
-    //             if a[i] > a[j]:
-    //                 mistakes += 1
-    //     return mistakes / total_pairs
-*/
-
-
-// Merge sort adaptation using two stacks
-
-
-int *merge_sort(int *list1, int *list2)
-{
-    int *new_list;
-    // ft_a
-    
-    // if ()
-
-    return new_list;
-}
+int *merge_sort() {}
 
 /*
 #include <stdlib.h>
