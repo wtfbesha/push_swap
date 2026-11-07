@@ -2,7 +2,7 @@
 
 ## Description
 
-*This project has been created as part of the 42 curriculum by mtorfs.*
+This project has been created as part of the 42 curriculum by neric.
 
 ## Libft
 
@@ -271,48 +271,3 @@ Functions such as `ft_strlen()` do not normally allocate memory, so their tests 
 * **Indirectly lost** - Memory became unreachable because another lost allocation held a reference to it.
 * **Still reachable** - Allocated memory remains reachable when the program exits.
 * **Invalid read/write** - The program accessed memory outside a valid region.
-
-## Resources
-
-### C Programming and Standard Library
-
-- [cppreference — C language and standard library](https://en.cppreference.com/w/c): Reference for C language features, strings, memory management, and standard library functions.
-- [Linux man-pages project](https://man7.org/linux/man-pages/): Manual pages for C library functions and system calls.
-
-### Compilation and Build Tools
-
-- [GCC Documentation](https://gcc.gnu.org/onlinedocs/): Compiler options and diagnostics.
-- [GNU Make Manual](https://www.gnu.org/software/make/manual/): Makefiles, build rules, and targets.
-
-### Memory Debugging and Testing
-
-- [Valgrind Documentation](https://valgrind.org/docs/manual/index.html): Guides for detecting memory leaks and invalid memory accesses.
-- [42 School](https://www.42.fr/): Information about the 42 curriculum and its learning environment.
-
-### Useful Commands
-
-```bash
-# Build the library
-make
-
-# Remove generated object files and the library
-make fclean
-
-# Rebuild from scratch
-make re
-
-# Check memory behavior in a test executable
-valgrind --leak-check=full --show-leak-kinds=all ./a.out
-```
-
-**Tip:** Use the C reference to check function behavior, compile with `-Wall -Wextra -Werror`, and run tests that cover edge cases such as empty strings, zero lengths, and allocation failures.
-
-## AI Usage
-
-AI assistance was used to help prepare and improve the project documentation. Specifically, it was used to:
-
-- Draft and organize parts of the `README.md`, including descriptions of the library, build instructions, usage examples, and testing guidance.
-- Suggest relevant reference resources and format them as clickable links.
-- Review the documentation for clarity and structure.
-
-AI was used for documentation support; this statement does not imply that AI generated or verified the implementation of the C functions. The project code should be reviewed, tested, and understood by the author, and any AI-assisted code contributions should be disclosed accurately.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtorfs <mtorfs@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 18:45:49 by mtorfs          #+#    #+#               */
-/*   Updated: 2026/10/26 18:45:49 by mtorfs          ###   ########.fr        */
+/*   Created: 2026/10/16 14:23:14 by neric             #+#    #+#             */
+/*   Updated: 2026/10/16 21:42:06 by neric            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,5 @@ int	main(void)
 	}
 	printf("Comparison finished.\n");
 	return (0);
+}
 */

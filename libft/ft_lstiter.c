@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtorfs <mtorfs@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 18:45:49 by mtorfs            #+#    #+#             */
-/*   Updated: 2026/10/26 18:48:22 by mtorfs           ###   ########.fr       */
+/*   Created: 2026/10/23 09:50:21 by neric             #+#    #+#             */
+/*   Updated: 2026/10/23 10:51:45 by neric            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include <stdlib.h>
 
@@ -55,7 +56,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
     ft_lstadd_back(&lst, node2);
     ft_lstadd_back(&lst, node3);
 
-    ft_lstiter(lst, eric);
+    ft_lstiter(lst, f);
 
     ft_lstclear(&lst, NULL);
     return (0);
