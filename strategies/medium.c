@@ -12,4 +12,4 @@
 
 #include "push_swap.h"
 
-int *ft_block_based_sort() {}
+void ft_block_based_sort(t_list *a, t_list *b) {}

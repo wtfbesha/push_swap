@@ -12,4 +12,4 @@
 
 #include "push_swap.h"
 
-int *ft_buble_sort() {}
+void ft_buble_sort(t_list *a, t_list *b) {}

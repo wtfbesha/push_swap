@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-int *ft_buble_sort();
-int *ft_block_based_sort();
-int *merge_sort();
-void push_swap() {}
+void ft_buble_sort(t_list *a, t_list *b);
+void ft_block_based_sort(t_list *a, t_list *b);
+void ft_merge_sort(t_list *a, t_list *b);
+void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
 
 #endif

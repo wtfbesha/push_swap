@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int *merge_sort() {}
+void ft_merge_sort(t_list *a, t_list *b) {}
 
 /*
 #include <stdlib.h>
