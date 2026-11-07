@@ -10,6 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+typedef struct s_stack
+{
+    t_list *top;
+    int size;
+}   t_stack;
+*/
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 

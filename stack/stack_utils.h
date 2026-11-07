@@ -9,3 +9,10 @@
 /*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_STACK_H
+# define PUSH_SWAP_STACK_H
+
+void stack_utils() {}
+
+#endif

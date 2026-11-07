@@ -12,4 +12,4 @@
 
 #include "push_swap.h"
 
-int *compute_disorder() {}
+double *compute_disorder() {}

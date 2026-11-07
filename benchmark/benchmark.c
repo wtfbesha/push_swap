@@ -12,4 +12,4 @@
 
 #include "push_swap.h"
 
-int *benchmark() {}
+void *benchmark() {}
