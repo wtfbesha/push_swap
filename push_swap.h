@@ -23,6 +23,7 @@ typedef struct s_stack
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include "libft/libft.h"
 
 void ft_buble_sort(t_list *a, t_list *b);
