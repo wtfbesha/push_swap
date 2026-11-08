@@ -13,3 +13,7 @@
 #include "push_swap.h"
 
 void rotate() {}
+
+// ra (rotate a):
+// rb (rotate b):
+// rr:

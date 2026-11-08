@@ -13,3 +13,7 @@
 #include "push_swap.h"
 
 void push() {}
+
+
+// pa (push a):
+// pa (push b):

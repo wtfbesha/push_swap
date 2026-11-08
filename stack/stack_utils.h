@@ -13,6 +13,11 @@
 #ifndef PUSH_SWAP_STACK_H
 # define PUSH_SWAP_STACK_H
 
-void stack_utils() {}
+void swap() {}
+void push() {}
+void rotate() {}
+void reverse_rotate() {}
+
+void stack_utils();
 
 #endif

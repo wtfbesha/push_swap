@@ -13,3 +13,7 @@
 #include "push_swap.h"
 
 void swap() {}
+
+// sa (swap a):
+// sb (swap b):
+// ss : 
