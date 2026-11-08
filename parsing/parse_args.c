@@ -13,26 +13,31 @@
 
 int main(int argc, char *argv[])
 {
-    int *list_input_argv;
+    if (argc == 1)
+        exit ;
 
-    if (argc)
-        return (NULL);
-    list_input_argv = ft_atoi(argv[2]);
-    if (!list_input_argv)
-        return ("Error");
-    if (argv[1] == "--simple") {
+    if (argv[1] == "--simple" || argv[2] == "--simple")
+    {
 
     }
-    if (argv[1] == "--medium") {
+    if (argv[1] == "--medium" || argv[2] == "--medium")
+    {
 
     }
-    if (argv[1] == "--complex") {
+    if (argv[1] == "--complex" || argv[2] == "--complex")
+    {
 
     }
-    if (argv[1] == "--adaptive") {
+    if (argv[1] == "--adaptive" || argv[2] == "--adaptive")
+    {
 
     }
-    if (argv[2] == "--bench") {
+    if (argv[1] == "--bench" || argv[2] == "--bench")
+    {
+
+    }
+    if (ft_atoi(argv[1]) || ft_atoi(argv[2]) || ft_atoi(argv[3]))
+    {
 
     }
 
