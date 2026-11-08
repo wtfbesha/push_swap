@@ -30,7 +30,10 @@ int main(int argc, char *argv[])
 
     }
     if (argv[1] == "--adaptive") {
-        
+
+    }
+    if (argv[2] == "--bench") {
+
     }
 
    return (0);
