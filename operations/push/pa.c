@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void    pa(t_list **a, t_list **b)
 {

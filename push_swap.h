@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft/libft.h"
@@ -22,26 +23,35 @@
 # define MEDIUM 2
 # define COMPLEX 3
 
+typedef struct s_stack;
+{
+    int             value;
+    struct s_stack  *next;
+}   t_stack;
+
+int     stack_size(t_stack *stack);
+void    bubble_sort(t_stack **a);
+
+/**/
 void    sa(t_list **a);
 void    sb(t_list **b);
 void    ss(t_list **a, t_list **b);
-
+/**/
 void    pa(t_list **a, t_list **b);
 void    pb(t_list **a, t_list **b);
-
+/**/
 void    ra(t_list **a);
 void    rb(t_list **b);
 void    rr(t_list **a, t_list **b);
-
+/**/
 void    rra(t_list **a);
 void    rrb(t_list **b);
 void    rrr(t_list **a, t_list **b);
-
+/*   bjhjj*/
 int parse_args(int argc, char **argv, int *strategy,
     int *bench, int *numbers_start);
 #endif
 
-// void ft_buble_sort(t_list *a, t_list *b);
 // void ft_block_based_sort(t_list *a, t_list *b);
 // void ft_merge_sort(t_list *a, t_list *b);
 // void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
