@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrr.c                                              :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,23 +12,28 @@
 
 #include "push_swap.h"
 
-void    ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b)
 {
-    t_list  *tmp;
+	t_list	*temp;
+	int		changed;
 
-    if (a && *a && (*a)->next)
-    {
-        tmp = (*a)->next;
-        (*a)->next = tmp->next;
-        tmp->next = *a;
-        *a = tmp;
-    }
-    if (b && *b && (*b)->next)
-    {
-        tmp = (*b)->next;
-        (*b)->next = tmp->next;
-        tmp->next = *b;
-        *b = tmp;
-    }
-    ft_putendl_fd("ss", 1);
+	changed = 0;
+	if (a && *a && (*a)->next)
+	{
+		temp = *a;
+		*a = (*a)->next;
+		temp->next = (*a)->next;
+		(*a)->next = temp;
+		changed = 1;
+	}
+	if (b && *b && (*b)->next)
+	{
+		temp = *b;
+		*b = (*b)->next;
+		temp->next = (*b)->next;
+		(*b)->next = temp;
+		changed = 1;
+	}
+	if (changed)
+		ft_putendl_fd("ss", 1);
 }
