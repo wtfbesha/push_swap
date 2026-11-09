@@ -22,6 +22,21 @@
 # define MEDIUM 2
 # define COMPLEX 3
 
+void    sa(t_list **a);
+void    sb(t_list **b);
+void    ss(t_list **a, t_list **b);
+
+void    pa(t_list **a, t_list **b);
+void    pb(t_list **a, t_list **b);
+
+void    ra(t_list **a);
+void    rb(t_list **b);
+void    rr(t_list **a, t_list **b);
+
+void    rra(t_list **a);
+void    rrb(t_list **b);
+void    rrr(t_list **a, t_list **b);
+
 int parse_args(int argc, char **argv, int *strategy,
     int *bench, int *numbers_start);
 #endif
@@ -31,4 +46,4 @@ int parse_args(int argc, char **argv, int *strategy,
 // void ft_merge_sort(t_list *a, t_list *b);
 // void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
 
-// #endif
+// endif
