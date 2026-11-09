@@ -11,25 +11,25 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int stack_size(t_stack *stack)
+int list_size(t_list *list)
 {
     int size;
 
     size = 0;
-    while (stack)
+    while (list)
     {
         size++;
-        stack = stack->next;
+        list = list->next;
     }
     return (size);
 }
-void    bubble_sort(t_stack **a)
+void    bubble_sort(t_list **a)
 {
     int     i;
     int     j;
     int     size;
 
-    size = stack_size(*a);
+    size = list_size(*a);
     i = 0;
     while (i < size - 1)
     {
@@ -50,3 +50,6 @@ void    bubble_sort(t_stack **a)
         i++;
     }
 }
+
+
+

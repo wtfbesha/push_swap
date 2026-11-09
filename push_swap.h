@@ -23,14 +23,9 @@
 # define MEDIUM 2
 # define COMPLEX 3
 
-typedef struct s_stack;
-{
-    int             value;
-    struct s_stack  *next;
-}   t_stack;
 
-int     stack_size(t_stack *stack);
-void    bubble_sort(t_stack **a);
+int     list_size(t_list *list);
+void    bubble_sort(t_list **a);
 
 /**/
 void    sa(t_list **a);
