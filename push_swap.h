@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -22,13 +23,10 @@
 # define MEDIUM 2
 # define COMPLEX 3
 
-int parse_args(int argc, char **argv, int *strategy,
-    int *bench, int *numbers_start);
+int		parse_args(int argc, char **argv, int *strategy,
+			int *bench, int *numbers_start);
+int		validate_args(int argc, char **argv, int start,
+			int **numbers, int *count);
+t_list	*init_stack_a(int *numbers, int count);
+
 #endif
-
-// void ft_buble_sort(t_list *a, t_list *b);
-// void ft_block_based_sort(t_list *a, t_list *b);
-// void ft_merge_sort(t_list *a, t_list *b);
-// void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
-
-// #endif
