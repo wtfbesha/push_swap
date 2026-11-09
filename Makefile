@@ -11,7 +11,18 @@ LIBFT_LINK = -L$(LIBFT_DIR) -lft
 SRCS = push_swap.c \
        parsing/parse_args.c \
        parsing/validate_args.c \
-       parsing/init_stack.c
+       parsing/init_stack.c \
+       operations/push/pa.c \
+       operations/push/pb.c \
+       operations/rotate/ra.c \
+       operations/rotate/rb.c \
+       operations/rotate/rr.c \
+       operations/reverse_rotate/rra.c \
+       operations/reverse_rotate/rrb.c \
+       operations/reverse_rotate/rrr.c \
+       operations/swap/sa.c \
+       operations/swap/sb.c \
+       operations/swap/ss.c
 
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h

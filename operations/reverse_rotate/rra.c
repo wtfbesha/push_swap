@@ -1,4 +1,16 @@
-#include "../../push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rrr.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
+/*   Updated: 2026/11/09 14:00:00 by neric            ###   ###.fr            */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
 
 void    rra(t_list **a)
 {
@@ -17,6 +29,5 @@ void    rra(t_list **a)
     prev->next = NULL;
     last->next = *a;
     *a = last;
-    write(1, "rra\n", 4);
-     // ft_putstr("rra\n");
+    ft_putendl_fd("rra", 1);
 }
