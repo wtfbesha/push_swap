@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -43,12 +44,15 @@ void    rra(t_list **a);
 void    rrb(t_list **b);
 void    rrr(t_list **a, t_list **b);
 /*   bjhjj*/
-int parse_args(int argc, char **argv, int *strategy,
-    int *bench, int *numbers_start);
-#endif
 
 // void ft_block_based_sort(t_list *a, t_list *b);
 // void ft_merge_sort(t_list *a, t_list *b);
 // void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
 
-// endif
+int		parse_args(int argc, char **argv, int *strategy,
+			int *bench, int *numbers_start);
+int		validate_args(int argc, char **argv, int start,
+			int **numbers, int *count);
+t_list	*init_stack_a(int *numbers, int count);
+
+#endif
