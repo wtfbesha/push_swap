@@ -13,3 +13,5 @@
 #include "push_swap.h"
 
 void push_swap() {}
+
+int main(int argc, char **argv) {}

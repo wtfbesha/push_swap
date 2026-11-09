@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-typedef struct s_stack
-{
-    t_list *top;
-    int size;
-}   t_stack;
-*/
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
 # include "libft/libft.h"
 
-void ft_buble_sort(t_list *a, t_list *b);
-void ft_block_based_sort(t_list *a, t_list *b);
-void ft_merge_sort(t_list *a, t_list *b);
-void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
+# define ADAPTIVE 0
+# define SIMPLE 1
+# define MEDIUM 2
+# define COMPLEX 3
 
+int parse_args(int argc, char **argv, int *strategy,
+    int *bench, int *numbers_start);
 #endif
+
+// void ft_buble_sort(t_list *a, t_list *b);
+// void ft_block_based_sort(t_list *a, t_list *b);
+// void ft_merge_sort(t_list *a, t_list *b);
+// void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
+
+// #endif

@@ -9,3 +9,6 @@
 /*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int validate_args(int argc, char **argv, int start);
+int is_valid_integer(char *str);

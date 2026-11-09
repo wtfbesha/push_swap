@@ -9,68 +9,68 @@
 /*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+static int is_bench(char *arg, int *bench)
 {
-    if (argc == 1)
-        exit ;
-
-    if (argv[1] == "--simple" || argv[2] == "--simple")
-    {
-
-    }
-    if (argv[1] == "--medium" || argv[2] == "--medium")
-    {
-
-    }
-    if (argv[1] == "--complex" || argv[2] == "--complex")
-    {
-
-    }
-    if (argv[1] == "--adaptive" || argv[2] == "--adaptive")
-    {
-
-    }
-    if (argv[1] == "--bench" || argv[2] == "--bench")
-    {
-
-    }
-    if (ft_atoi(argv[1]) || ft_atoi(argv[2]) || ft_atoi(argv[3]))
-    {
-
-    }
-
-   return (0);
+	if (ft_strncmp(arg, "--bench", 8) == 0)
+	{
+		if (*bench)
+			return (0);
+		*bench = 1;
+		return (1);
+	}
+	return (-1);
 }
 
+static int set_strategy(char *arg, int *strategy, int *selected)
+{
+	int	new_strategy;
 
-// sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
+	if (ft_strncmp(arg, "--simple", 9) == 0)
+		new_strategy = SIMPLE;
+	else if (ft_strncmp(arg, "--medium", 9) == 0)
+		new_strategy = MEDIUM;
+	else if (ft_strncmp(arg, "--complex", 10) == 0)
+		new_strategy = COMPLEX;
+	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
+		new_strategy = ADAPTIVE;
+	else
+		return (-1);
+	if (*selected)
+		return (0);
+	*strategy = new_strategy;
+	*selected = 1;
+	return (1);
+}
 
-/*
-    sa
-    sb
-    ss
-    pa
-    pb
-    ra
-    rb
-    rr
-    rra
-    rrb
-    rrr
-*/
+int	parse_args(int argc, char **argv, int *strategy,
+		int *bench, int *numbers_start)
+{
+	int	i;
+	int	result;
+	int	selected;
 
-
-/*
-stacks are six arguments
-split by space
-
-1
-2
-3
-4
-5
-6
-
-*/
+	i = 1;
+	selected = 0;
+	*strategy = ADAPTIVE;
+	*bench = 0;
+	while (i < argc)
+	{
+		result = is_bench(argv[i], bench);
+		if (result == 0)
+			return (0);
+		if (result == -1)
+		{
+			result = set_strategy(argv[i], strategy, &selected);
+			if (result == 0)
+				return (0);
+			if (result == -1)
+				break ;
+		}
+		i++;
+	}
+	*numbers_start = i;
+	return (i < argc);
+}
