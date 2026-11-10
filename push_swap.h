@@ -54,4 +54,6 @@ int		validate_args(int argc, char **argv, int start,
 			int **numbers, int *count);
 t_list	*init_stack_a(int *numbers, int count);
 
+double compute_disorder(t_node *stack)
+
 #endif

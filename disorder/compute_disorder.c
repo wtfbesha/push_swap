@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-double *compute_disorder(t_node *stack)
+double compute_disorder(t_node *stack)
 {
     t_node *i;
     t_node *j;
@@ -25,7 +25,7 @@ double *compute_disorder(t_node *stack)
 
     while (i)
     {
-        j = i->next
+        j = i->next;
         while (j)
         {
             total++;
@@ -36,6 +36,7 @@ double *compute_disorder(t_node *stack)
         i = i->next;
     }
     if (total == 0)
-        return (0.0)
+        return (0.0);
     return ((double)mistakes / (double)total);
 }
+
