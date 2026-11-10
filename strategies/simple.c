@@ -11,6 +11,51 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
+
+
+
+
+void sort_three(t_list **a)
+{
+    3
+}
+
+void sort_five(t_list **a, t_list **b)
+{
+    5
+}
+
+    // if (a > b)
+    //     sa()
+
+    // if ()
+    //     ra() 
+
+    // if ()
+    //     rra()
+
+
+// push swap
+// sa                 // swap
+// ra                 // rotate
+// rra                // reverse rotate
+
+
+// Simple algorithm (O(n2)):
+// Buble sort adaptation
+
+// Medium algorithm (O(n√n)):
+// Block based partitioning
+
+// Complex algorithm (O(n log n)):
+// Merge sort adaptation
+
+
+
+
+
+
+
 // int list_size(t_list *list)
 // {
 //     int size;
