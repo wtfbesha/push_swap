@@ -9,92 +9,94 @@
 /*   Updated: 2026/11/06 18:39:48 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../push_swap.h"
 
-
-
-
-
-void sort_three(t_list **a)
+static int	get_min_pos(t_list *a)
 {
-    3
+	int		min;
+	int		min_pos;
+	int		pos;
+	t_list	*current;
+
+	min = *(int *)a->content;
+	min_pos = 0;
+	pos = 0;
+	current = a;
+	while (current)
+	{
+		if (*(int *)current->content < min)
+		{
+			min = *(int *)current->content;
+			min_pos = pos;
+		}
+		current = current->next;
+		pos++;
+	}
+	return (min_pos);
 }
 
-void sort_five(t_list **a, t_list **b)
+void	sort_three(t_list **a)
 {
-    5
+	int	first;
+	int	second;
+	int	third;
+
+	if (!a || !*a || !(*a)->next || !(*a)->next->next)
+		return ;
+	first = *(int *)(*a)->content;
+	second = *(int *)(*a)->next->content;
+	third = *(int *)(*a)->next->next->content;
+	if (first > second && first > third)
+		ra(a);
+	else if (second > first && second > third)
+		rra(a);
+	if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+		sa(a);
 }
 
-    // if (a > b)
-    //     sa()
+static void	push_min_to_b(t_list **a, t_list **b)
+{
+	int	size;
+	int	pos;
 
-    // if ()
-    //     ra() 
+	size = ft_lstsize(*a);
+	pos = get_min_pos(*a);
+	if (pos <= size / 2)
+	{
+		while (pos-- > 0)
+			ra(a);
+	}
+	else
+	{
+		pos = size - pos;
+		while (pos-- > 0)
+			rra(a);
+	}
+	pb(a, b);
+}
 
-    // if ()
-    //     rra()
+void	sort_five(t_list **a, t_list **b)
+{
+	if (!a || !b || !*a)
+		return ;
+	while (ft_lstsize(*a) > 3)
+		push_min_to_b(a, b);
+	sort_three(a);
+	while (*b)
+		pa(a, b);
+}
 
-
-// push swap
-// sa                 // swap
-// ra                 // rotate
-// rra                // reverse rotate
-
-
-// Simple algorithm (O(n2)):
-// Buble sort adaptation
-
-// Medium algorithm (O(n√n)):
-// Block based partitioning
-
-// Complex algorithm (O(n log n)):
-// Merge sort adaptation
-
-
-
-
-
-
-
-// int list_size(t_list *list)
-// {
-//     int size;
-
-//     size = 0;
-//     while (list)
-//     {
-//         size++;
-//         list = list->next;
-//     }
-//     return (size);
-// }
-// void    bubble_sort(t_list **a)
-// {
-//     int     i;
-//     int     j;
-//     int     size;
-
-//     size = list_size(*a);
-//     i = 0;
-//     while (i < size - 1)
-//     {
-//         j = 0;
-//         while (j < size - i - 1)
-//         {
-//             if ((*a)->value > (*a)->next->value)
-//                 sa(a);
-//             ra(a);
-//             j++;
-//         }
-//         j = 0;
-//         while (j < size - i - 1)
-//         {
-//             rra(a);
-//             j++;
-//         }
-//         i++;
-//     }
-// }
-
-
-
+void	sort_simple(t_list **a, t_list **b)
+{
+	if (!a || !b || !*a)
+		return ;
+	if (ft_lstsize(*a) <= 3)
+		sort_three(a);
+	else if (ft_lstsize(*a) <= 5)
+		sort_five(a, b);
+	else
+	{
+		/* Bubble-sort-based push_swap logic goes here */
+	}
+}
