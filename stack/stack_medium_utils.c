@@ -46,3 +46,44 @@ int	get_max_pos(t_list *stack)
 	}
 	return (max_pos);
 }
+int	index_stack(t_list *stack)
+{
+	t_list	*current;
+	int		*values;
+	int		size;
+	int		i;
+	int		j;
+	int		rank;
+
+	size = ft_lstsize(stack);
+	if (size <= 0)
+		return (0);
+	values = malloc(sizeof(int) * size);
+	if (!values)
+		return (0);
+	current = stack;
+	i = 0;
+	while (current)
+	{
+		values[i++] = *(int *)current->content;
+		current = current->next;
+	}
+	current = stack;
+	i = 0;
+	while (current)
+	{
+		rank = 0;
+		j = 0;
+		while (j < size)
+		{
+			if (values[i] > values[j])
+				rank++;
+			j++;
+		}
+		*(int *)current->content = rank;
+		current = current->next;
+		i++;
+	}
+	free(values);
+	return (1);
+}

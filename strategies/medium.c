@@ -1,33 +1,31 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   medium.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_window(t_list **a, t_list **b, int n)
+static int	get_block_size(int size)
+{
+	if (size <= 100)
+		return (size / 5 + 1);
+	return (size / 11 + 1);
+}
+
+static void	push_blocks(t_list **a, t_list **b, int size)
 {
 	int	pushed;
-	int	range;
+	int	block_size;
+	int	rank;
 
 	pushed = 0;
-	range = n * 3 / 100 + 14;
+	block_size = get_block_size(size);
 	while (*a)
 	{
-		if (*(int *)(*a)->content <= pushed)
+		rank = *(int *)(*a)->content;
+		if (rank <= pushed)
 		{
 			pb(a, b);
 			rb(b);
 			pushed++;
 		}
-		else if (*(int *)(*a)->content <= pushed + range)
+		else if (rank <= pushed + block_size)
 		{
 			pb(a, b);
 			pushed++;
@@ -44,6 +42,8 @@ static void	push_max_to_a(t_list **a, t_list **b)
 
 	size = ft_lstsize(*b);
 	pos = get_max_pos(*b);
+	if (pos < 0)
+		return ;
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
@@ -60,16 +60,19 @@ static void	push_max_to_a(t_list **a, t_list **b)
 
 void	sort_medium(t_list **a, t_list **b)
 {
+	int	size;
+
 	if (!a || !b || !*a || is_sorted(*a))
 		return ;
-	if (ft_lstsize(*a) <= 5)
+	size = ft_lstsize(*a);
+	if (size <= 5)
 	{
 		sort_simple(a, b);
 		return ;
 	}
 	if (!index_stack(*a))
 		return ;
-	push_window(a, b, ft_lstsize(*a));
+	push_blocks(a, b, size);
 	while (*b)
 		push_max_to_a(a, b);
 }

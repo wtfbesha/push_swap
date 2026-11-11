@@ -60,5 +60,8 @@ int		validate_args(int argc, char **argv, int start,
 t_list	*init_stack_a(int *numbers, int count);
 
 double compute_disorder(t_list *stack);
+int     is_sorted(t_list *stack);
+int     get_max_pos(t_list *stack);
+int     index_stack(t_list *stack);
 
 #endif
