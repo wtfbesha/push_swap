@@ -42,8 +42,14 @@ void	sort_three(t_list **a)
 	int	second;
 	int	third;
 
-	if (!a || !*a || !(*a)->next || !(*a)->next->next)
+	if (!a || !*a || !(*a)->next)
 		return ;
+	if (!(*a)->next->next)
+	{
+		if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+			sa(a);
+		return ;
+	}
 	first = *(int *)(*a)->content;
 	second = *(int *)(*a)->next->content;
 	third = *(int *)(*a)->next->next->content;

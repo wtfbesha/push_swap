@@ -24,7 +24,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
+
+static void do_nothing(void *content)
+{
+    (void)content;
+}
+
+static t_list *make_stack(int *values, int size)
+{
+    t_list *stack;
+    int i;
+
+    stack = NULL;
+    i = 0;
+    while (i < size)
+    {
+        ft_lstadd_back(&stack, ft_lstnew(&values[i]));
+        i++;
+    }
+    return (stack);
+}
+
+static void free_stack(t_list **stack)
+{
+    ft_lstclear(stack, do_nothing);
+}
+
+static void print_disorder(char *label, t_list *stack)
+{
+    ft_putstr_fd(label, 1);
+    ft_putnbr_fd((int)(compute_disorder(stack) * 1000000), 1);
+    ft_putchar_fd('\n', 1);
+}
+
+static void run_test(char *label, int *values, int size)
+{
+    t_list *stack;
+
+    stack = make_stack(values, size);
+    print_disorder(label, stack);
+    free_stack(&stack);
+}
+
+int main(void)
+{
+    int one[1] = {42};
+    int sorted[4] = {1, 2, 3, 4};
+    int reverse[4] = {4, 3, 2, 1};
+    int partial[4] = {2, 1, 3, 4};
+
+    print_disorder("NULL: ", NULL);
+    run_test("One element: ", one, 1);
+    run_test("Sorted: ", sorted, 4);
+    run_test("Reverse: ", reverse, 4);
+    run_test("Partial: ", partial, 4);
+    return (0);
+}
 
 
 
