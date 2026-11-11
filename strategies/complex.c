@@ -10,24 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-void ft_merge_sort(t_list *a, t_list *b) {}
-
-/*
-#include <stdlib.h>
-#include <stdio.h>
-int main()
+static int	val(t_list *node)
 {
-    int arr1[] = { 73, 3,  69, 88, 36, 56, 44, 63, 
-        14, 60, 80, 84, 6,  80, 55, 62 };
-    int arr2[] = {34, 3, 31, 1, 12, 23, 54, 21, -3, 2,  13};
-
-    // int size_a = sizeof(arr1) / ;
-
-    int res = merge_sort(arr1, arr2);
-    int i = 0;
-
-    printf("%d", res);
+	return (*(int *)node->content);
 }
-*/
+
+static int	top_sorted(t_list *stack, int n)
+{
+	int	previous;
+	int	i;
+
+	if (n < 1)
+		return (1);
+	if (!stack)
+		return (0);
+	previous = val(stack);
+	stack = stack->next;
+	i = 1;
+	while (i < n)
+	{
+		if (!stack || previous > val(stack))
+			return (0);
+		previous = val(stack);
+		stack = stack->next;
+		i++;
+	}
+	return (1);
+}
+
+static t_list	**get_stack(t_list **a, t_list **b, int which)
+{
+	if (which == 0)
+		return (a);
+	return (b);
+}
+
+static int	top_less(t_list **a, t_list **b, int which)
+{
+	t_list	**current;
+	t_list	**other;
+
+	current = get_stack(a, b, which);
+	other = get_stack(a, b, 1 - which);
+	if (!*current || !*other)
+		return (0);
+	return (val(*current) < val(*other));
+}
