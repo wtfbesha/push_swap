@@ -97,6 +97,10 @@ void	sort_simple(t_list **a, t_list **b)
 		sort_five(a, b);
 	else
 	{
-		/* Bubble-sort-based push_swap logic goes here */
+		while (ft_lstsize(*a) > 3)
+			push_min_to_b(a, b);
+		sort_three(a);
+		while (*b)
+			pa(a, b);
 	}
 }
