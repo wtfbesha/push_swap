@@ -47,6 +47,7 @@ void    rrr(t_list **a, t_list **b);
 void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
 void	sort_simple(t_list **a, t_list **b);
+void	sort_medium(t_list **a, t_list **b);
 
 // void ft_block_based_sort(t_list *a, t_list *b);
 // void ft_merge_sort(t_list *a, t_list *b);
@@ -59,7 +60,5 @@ int		validate_args(int argc, char **argv, int start,
 t_list	*init_stack_a(int *numbers, int count);
 
 double compute_disorder(t_list *stack);
-
-void	sort_medium(t_list **a, t_list **b);
 
 #endif
