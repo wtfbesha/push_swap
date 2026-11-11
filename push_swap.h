@@ -42,7 +42,6 @@ void    rr(t_list **a, t_list **b);
 void    rra(t_list **a);
 void    rrb(t_list **b);
 void    rrr(t_list **a, t_list **b);
-/*   bjhjj*/
 
 
 void	sort_three(t_list **a);
@@ -59,6 +58,6 @@ int		validate_args(int argc, char **argv, int start,
 			int **numbers, int *count);
 t_list	*init_stack_a(int *numbers, int count);
 
-double compute_disorder(t_node *stack)
+double compute_disorder(t_list *stack);
 
 #endif
