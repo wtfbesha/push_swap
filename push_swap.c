@@ -24,101 +24,225 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-#include <stdio.h> // temporary for printing stack values during tests
-
-static void print_stacks(t_list *a, t_list *b)
+static void do_nothing(void *content)
 {
-    ft_putstr_fd("-------------------\n", 1);
-    ft_putstr_fd("Stack A: ", 1);
-    while (a)
-    {
-        ft_putnbr_fd(*(int *)a->content, 1);
-        ft_putchar_fd(' ', 1);
-        a = a->next;
-    }
-    ft_putchar_fd('\n', 1);
-
-    ft_putstr_fd("Stack B: ", 1);
-    while (b)
-    {
-        ft_putnbr_fd(*(int *)b->content, 1);
-        ft_putchar_fd(' ', 1);
-        b = b->next;
-    }
-    ft_putchar_fd('\n', 1);
-    ft_putstr_fd("-------------------\n", 1);
+    (void)content;
 }
 
-int main(int argc, char **argv)
+static t_list *make_stack(int *values, int size)
 {
-    int     strategy;
-    int     bench;
-    int     start;
-    int     count;
-    int     *numbers;
-    t_list  *a;
-    t_list  *b;
+    t_list *stack;
+    int i;
 
-    if (argc == 1)
-        return (0);
-    if (!parse_args(argc, argv, &strategy, &bench, &start))
+    stack = NULL;
+    i = 0;
+    while (i < size)
     {
-        write(2, "Error\n", 6);
-        return (1);
+        ft_lstadd_back(&stack, ft_lstnew(&values[i]));
+        i++;
     }
-    if (!validate_args(argc, argv, start, &numbers, &count))
-    {
-        write(2, "Error\n", 6);
-        return (1);
-    }
-    a = init_stack_a(numbers, count);
-    free(numbers);
-    if (!a)
-    {
-        write(2, "Error\n", 6);
-        return (1);
-    }
-    b = NULL;
+    return (stack);
+}
 
-    // --- TESTING OPERATIONS ---
-    ft_putstr_fd("INITIAL STATE:\n", 1);
-    print_stacks(a, b);
+static void free_stack(t_list **stack)
+{
+    ft_lstclear(stack, do_nothing);
+}
 
-    // Test Push to B
-    if (a) {
-        ft_putstr_fd("-> Calling pb:\n", 1);
-        pb(&a, &b);
-        print_stacks(a, b);
-    }
+static void print_disorder(char *label, t_list *stack)
+{
+    ft_putstr_fd(label, 1);
+    ft_putnbr_fd((int)(compute_disorder(stack) * 1000000), 1);
+    ft_putchar_fd('\n', 1);
+}
 
-    // Test Rotate A
-    if (a && a->next) {
-        ft_putstr_fd("-> Calling ra:\n", 1);
-        ra(&a);
-        print_stacks(a, b);
-    }
+static void run_test(char *label, int *values, int size)
+{
+    t_list *stack;
 
-    // Test Swap A
-    if (a && a->next) {
-        ft_putstr_fd("-> Calling sa:\n", 1);
-        sa(&a);
-        print_stacks(a, b);
-    }
+    stack = make_stack(values, size);
+    print_disorder(label, stack);
+    free_stack(&stack);
+}
 
-    // Test Push back to A
-    if (b) {
-        ft_putstr_fd("-> Calling pa:\n", 1);
-        pa(&a, &b);
-        print_stacks(a, b);
-    }
+int main(void)
+{
+    int one[1] = {42};
+    int sorted[4] = {1, 2, 3, 4};
+    int reverse[4] = {4, 3, 2, 1};
+    int partial[4] = {2, 1, 3, 4};
 
-    // Clean up
-    ft_lstclear(&a, free);
-    ft_lstclear(&b, free);
+    print_disorder("NULL: ", NULL);
+    run_test("One element: ", one, 1);
+    run_test("Sorted: ", sorted, 4);
+    run_test("Reverse: ", reverse, 4);
+    run_test("Partial: ", partial, 4);
     return (0);
 }
+
+
+
+// #include "push_swap.h"
+
+// int	main(void)
+// {
+// 	int		values1[] = {1, 2, 3, 4};
+// 	int		values2[] = {4, 3, 2, 1};
+// 	int		values3[] = {2, 1, 3, 4};
+// 	t_list	*a;
+
+// 	a = NULL;
+// 	ft_lstadd_back(&a, ft_lstnew(&values1[0]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values1[1]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values1[2]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values1[3]));
+// 	write(1, "Sorted: ", 8);
+// 	ft_putnbr_fd((int)(compute_disorder(a) * 1000000), 1);
+// 	write(1, "\n", 1);
+// 	ft_lstclear(&a, NULL);
+
+// 	a = NULL;
+// 	ft_lstadd_back(&a, ft_lstnew(&values2[0]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values2[1]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values2[2]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values2[3]));
+// 	write(1, "Reverse: ", 9);
+// 	ft_putnbr_fd((int)(compute_disorder(a) * 1000000), 1);
+// 	write(1, "\n", 1);
+// 	ft_lstclear(&a, NULL);
+
+// 	a = NULL;
+// 	ft_lstadd_back(&a, ft_lstnew(&values3[0]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values3[1]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values3[2]));
+// 	ft_lstadd_back(&a, ft_lstnew(&values3[3]));
+// 	write(1, "Partial: ", 9);
+// 	ft_putnbr_fd((int)(compute_disorder(a) * 1000000), 1);
+// 	write(1, "\n", 1);
+// 	ft_lstclear(&a, NULL);
+// 	return (0);
+// }
+
+
+
+
+
+
+
+
+
+
+
+// #include <stdio.h> // temporary for printing stack values during tests
+
+// static void print_stacks(t_list *a, t_list *b)
+// {
+//     ft_putstr_fd("-------------------\n", 1);
+//     ft_putstr_fd("Stack A: ", 1);
+//     while (a)
+//     {
+//         ft_putnbr_fd(*(int *)a->content, 1);
+//         ft_putchar_fd(' ', 1);
+//         a = a->next;
+//     }
+//     ft_putchar_fd('\n', 1);
+
+//     ft_putstr_fd("Stack B: ", 1);
+//     while (b)
+//     {
+//         ft_putnbr_fd(*(int *)b->content, 1);
+//         ft_putchar_fd(' ', 1);
+//         b = b->next;
+//     }
+//     ft_putchar_fd('\n', 1);
+//     ft_putstr_fd("-------------------\n", 1);
+// }
+
+// int main(int argc, char **argv)
+// {
+//     int     strategy;
+//     int     bench;
+//     int     start;
+//     int     count;
+//     int     *numbers;
+//     t_list  *a;
+//     t_list  *b;
+
+//     if (argc == 1)
+//         return (0);
+//     if (!parse_args(argc, argv, &strategy, &bench, &start))
+//     {
+//         write(2, "Error\n", 6);
+//         return (1);
+//     }
+//     if (!validate_args(argc, argv, start, &numbers, &count))
+//     {
+//         write(2, "Error\n", 6);
+//         return (1);
+//     }
+//     a = init_stack_a(numbers, count);
+//     free(numbers);
+//     if (!a)
+//     {
+//         write(2, "Error\n", 6);
+//         return (1);
+//     }
+//     b = NULL;
+
+//     // --- TESTING OPERATIONS ---
+//     ft_putstr_fd("INITIAL STATE:\n", 1);
+//     print_stacks(a, b);
+
+//     // Test Push to B
+//     if (a) {
+//         ft_putstr_fd("-> Calling pb:\n", 1);
+//         pb(&a, &b);
+//         print_stacks(a, b);
+//     }
+
+//     // Test Rotate A
+//     if (a && a->next) {
+//         ft_putstr_fd("-> Calling ra:\n", 1);
+//         ra(&a);
+//         print_stacks(a, b);
+//     }
+
+//     // Test Swap A
+//     if (a && a->next) {
+//         ft_putstr_fd("-> Calling sa:\n", 1);
+//         sa(&a);
+//         print_stacks(a, b);
+//     }
+
+//     // Test Push back to A
+//     if (b) {
+//         ft_putstr_fd("-> Calling pa:\n", 1);
+//         pa(&a, &b);
+//         print_stacks(a, b);
+//     }
+
+//     // Clean up
+//     ft_lstclear(&a, free);
+//     ft_lstclear(&b, free);
+//     return (0);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -165,6 +289,14 @@ int main(int argc, char **argv)
 // 	ft_lstclear(&b, free);
 // 	return (0);
 // }
+
+
+
+
+
+
+
+
 
 
 

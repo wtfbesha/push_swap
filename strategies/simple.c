@@ -42,8 +42,14 @@ void	sort_three(t_list **a)
 	int	second;
 	int	third;
 
-	if (!a || !*a || !(*a)->next || !(*a)->next->next)
+	if (!a || !*a || !(*a)->next)
 		return ;
+	if (!(*a)->next->next)
+	{
+		if (*(int *)(*a)->content > *(int *)(*a)->next->content)
+			sa(a);
+		return ;
+	}
 	first = *(int *)(*a)->content;
 	second = *(int *)(*a)->next->content;
 	third = *(int *)(*a)->next->next->content;
@@ -97,6 +103,10 @@ void	sort_simple(t_list **a, t_list **b)
 		sort_five(a, b);
 	else
 	{
-		/* Bubble-sort-based push_swap logic goes here */
+		while (ft_lstsize(*a) > 3)
+			push_min_to_b(a, b);
+		sort_three(a);
+		while (*b)
+			pa(a, b);
 	}
 }

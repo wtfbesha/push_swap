@@ -22,7 +22,7 @@ SRCS = push_swap.c \
        operations/reverse_rotate/rrr.c \
        operations/swap/sa.c \
        operations/swap/sb.c \
-       operations/swap/ss.c
+       disorder/compute_disorder.c \
 
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
