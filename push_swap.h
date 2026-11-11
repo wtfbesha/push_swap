@@ -60,4 +60,6 @@ t_list	*init_stack_a(int *numbers, int count);
 
 double compute_disorder(t_list *stack);
 
+void	sort_medium(t_list **a, t_list **b);
+
 #endif
