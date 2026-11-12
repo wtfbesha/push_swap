@@ -6,7 +6,7 @@
 /*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/12 15:30:00 by neric            ###   ########.fr       */
+/*   Updated: 2026/11/12  by neric                           ###   ########.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int	main(int argc, char **argv)
 	int		*numbers;
 	double	disorder;
 
-	a = NULL;
-	b = NULL;
 	if (argc < 2)
 		return (0);
+	a = NULL;
+	b = NULL;
 	if (!parse_args(argc, argv, &strategy, &bench, &start))
 		ft_error_exit(NULL);
 	if (!validate_args(argc, argv, start, &numbers, &count))
@@ -55,7 +55,10 @@ int	main(int argc, char **argv)
 	free(numbers);
 	if (!a)
 		ft_error_exit(NULL);
-	disorder = compute_disorder(a);
+	disorder = 0.0;
+	if (bench)
+		disorder = compute_disorder(a);
+	ft_bench_ops(0, -1);
 	if (!is_sorted(a))
 		run_strategy(&a, &b, strategy);
 	if (bench)

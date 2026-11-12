@@ -22,5 +22,6 @@ void    pa(t_list **a, t_list **b)
     *b = (*b)->next;
     tmp->next = *a;
     *a = tmp;
+    ft_bench_ops(OP_PA, 1);
     ft_putendl_fd("pa", 1);
 }

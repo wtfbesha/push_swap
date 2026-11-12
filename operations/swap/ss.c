@@ -35,5 +35,8 @@ void	ss(t_list **a, t_list **b)
 		changed = 1;
 	}
 	if (changed)
+	{
+		ft_bench_ops(OP_SS, 1);
 		ft_putendl_fd("ss", 1);
+	}
 }

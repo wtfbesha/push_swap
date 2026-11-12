@@ -29,5 +29,6 @@ void    rrb(t_list **b)
     prev->next = NULL;
     last->next = *b;
     *b = last;
+    ft_bench_ops(OP_RRB, 1);
     ft_putendl_fd("rrb", 1);
 }

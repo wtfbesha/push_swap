@@ -24,5 +24,6 @@ void    sa(t_list **a)
     first->next = second->next;
     second->next = first;
     *a = second;
+    ft_bench_ops(OP_SA, 1);
     ft_putendl_fd("sa", 1);
 }

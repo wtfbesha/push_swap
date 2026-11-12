@@ -73,5 +73,5 @@ void	ft_adaptive_sort(t_list **a, t_list **b);
 double compute_disorder(t_list *stack);
 /* */
 long int	ft_bench_ops(int op_type, int action);
-void	print_benchmark(int strategy, double disorder);
+void		print_benchmark(int strategy, double disorder);
 #endif

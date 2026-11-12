@@ -29,5 +29,6 @@ void    rra(t_list **a)
     prev->next = NULL;
     last->next = *a;
     *a = last;
+    ft_bench_ops(OP_RRA, 1);
     ft_putendl_fd("rra", 1);
 }

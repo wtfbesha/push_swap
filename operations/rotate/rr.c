@@ -42,5 +42,8 @@ void	rr(t_list **a, t_list **b)
 		changed = 1;
 	}
 	if (changed)
+	{
+		ft_bench_ops(OP_RR, 1);
 		ft_putendl_fd("rr", 1);
+	}
 }
