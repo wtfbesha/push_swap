@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   stack_medium_utils.c                              :+:      :+:    :+:    */
+/*   stack_medium_utils.c                               :+:      :+:    :+:   */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
-/*   Updated: 2026/11/12 17:47:24 by mtorfs          ###   ########.fr        */
+/*   Updated: 2026/11/12 18:10:42 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	index_stack(t_list *stack)
 	size = ft_lstsize(stack);
 	if (size <= 0)
 		return (0);
-	values = malloc(sizeof(int)*size);
+	values = malloc(sizeof(int) * size);
 	if (!values)
 		return (0);
 	current = stack;
