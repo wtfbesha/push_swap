@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/09 14:00:00 by neric            ###   ###.fr            */
+/*                                                       :::      ::::::::    */
+/*   pa.c                                              :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
+/*   Updated: 2026/11/12 17:46:35 by mtorfs          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b)
 {
-    t_list  *tmp;
+	t_list	*tmp;
 
-    if (!b || !*b)
-        return ;
-    tmp = *b;
-    *b = (*b)->next;
-    tmp->next = *a;
-    *a = tmp;
-    ft_putendl_fd("pa", 1);
+	if (!b || !*b)
+		return ;
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = *a;
+	*a = tmp;
+	ft_putendl_fd("pa", 1);
 }
