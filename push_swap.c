@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-<<<<<<< HEAD
 static void	error_exit(void)
 {
 	write(2, "Error\n", 6);
@@ -97,7 +96,6 @@ int	main(int argc, char **argv)
 //     (void)content;
 // }
 
-=======
 int	main(int argc, char **argv)
 {
 	int		strategy;
@@ -185,7 +183,6 @@ int	main(int argc, char **argv)
 //     (void)content;
 // }
 
->>>>>>> main
 // static t_list *make_stack(int *values, int size)
 // {
 //     t_list *stack;
