@@ -228,8 +228,8 @@ This is a group project completed by two learners.
 
 | Learner | Contributions |
 | --- | --- |
-| `neric` | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
-| `mtorfs` | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
+| [neric](https://github.com/NiyongaboEric) | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
+| [mtorfs](https://github.com/wtfbesha) | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
 
 Replace the bracketed text with an accurate description of each learner’s work before submitting.
 
