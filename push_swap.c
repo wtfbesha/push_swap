@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+<<<<<<< HEAD
 static void	error_exit(void)
 {
 	write(2, "Error\n", 6);
@@ -96,6 +97,95 @@ int	main(int argc, char **argv)
 //     (void)content;
 // }
 
+=======
+int	main(int argc, char **argv)
+{
+	int		strategy;
+	int		bench;
+	int		start;
+	int		count;
+	int		*numbers;
+	t_list	*a;
+	t_list	*b;
+
+	if (argc == 1)
+		return (0);
+	if (!parse_args(argc, argv, &strategy, &bench, &start))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (!validate_args(argc, argv, start, &numbers, &count))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	a = init_stack_a(numbers, count);
+	free(numbers);
+	if (!a)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	b = NULL;
+	if (strategy == MEDIUM || strategy == ADAPTIVE)
+		sort_medium(&a, &b);
+	else if (strategy == SIMPLE)
+		sort_simple(&a, &b);
+	else
+		sort_medium(&a, &b);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
+	(void)bench;
+	return (0);
+}
+
+// #include "push_swap.h"
+
+// int	main(int argc, char **argv)
+// {
+// 	int		strategy;
+// 	int		bench;
+// 	int		start;
+// 	int		count;
+// 	int		*numbers;
+// 	t_list	*a;
+// 	t_list	*b;
+
+// 	if (argc == 1)
+// 		return (0);
+// 	if (!parse_args(argc, argv, &strategy, &bench, &start))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	if (!validate_args(argc, argv, start, &numbers, &count))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	a = init_stack_a(numbers, count);
+// 	free(numbers);
+// 	if (!a)
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	b = NULL;
+// 	ft_lstclear(&a, free);
+// 	ft_lstclear(&b, free);
+// 	return (0);
+// }
+
+
+
+
+// static void do_nothing(void *content)
+// {
+//     (void)content;
+// }
+
+>>>>>>> main
 // static t_list *make_stack(int *values, int size)
 // {
 //     t_list *stack;
