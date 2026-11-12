@@ -27,61 +27,143 @@
 
 #include "push_swap.h"
 
-static void do_nothing(void *content)
+int	main(int argc, char **argv)
 {
-    (void)content;
+	int		strategy;
+	int		bench;
+	int		start;
+	int		count;
+	int		*numbers;
+	t_list	*a;
+	t_list	*b;
+
+	if (argc == 1)
+		return (0);
+	if (!parse_args(argc, argv, &strategy, &bench, &start))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (!validate_args(argc, argv, start, &numbers, &count))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	a = init_stack_a(numbers, count);
+	free(numbers);
+	if (!a)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	b = NULL;
+	if (strategy == MEDIUM || strategy == ADAPTIVE)
+		sort_medium(&a, &b);
+	else if (strategy == SIMPLE)
+		sort_simple(&a, &b);
+	else
+		sort_medium(&a, &b);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
+	(void)bench;
+	return (0);
 }
 
-static t_list *make_stack(int *values, int size)
-{
-    t_list *stack;
-    int i;
+// #include "push_swap.h"
 
-    stack = NULL;
-    i = 0;
-    while (i < size)
-    {
-        ft_lstadd_back(&stack, ft_lstnew(&values[i]));
-        i++;
-    }
-    return (stack);
-}
+// int	main(int argc, char **argv)
+// {
+// 	int		strategy;
+// 	int		bench;
+// 	int		start;
+// 	int		count;
+// 	int		*numbers;
+// 	t_list	*a;
+// 	t_list	*b;
 
-static void free_stack(t_list **stack)
-{
-    ft_lstclear(stack, do_nothing);
-}
+// 	if (argc == 1)
+// 		return (0);
+// 	if (!parse_args(argc, argv, &strategy, &bench, &start))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	if (!validate_args(argc, argv, start, &numbers, &count))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	a = init_stack_a(numbers, count);
+// 	free(numbers);
+// 	if (!a)
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	b = NULL;
+// 	ft_lstclear(&a, free);
+// 	ft_lstclear(&b, free);
+// 	return (0);
+// }
 
-static void print_disorder(char *label, t_list *stack)
-{
-    ft_putstr_fd(label, 1);
-    ft_putnbr_fd((int)(compute_disorder(stack) * 1000000), 1);
-    ft_putchar_fd('\n', 1);
-}
 
-static void run_test(char *label, int *values, int size)
-{
-    t_list *stack;
 
-    stack = make_stack(values, size);
-    print_disorder(label, stack);
-    free_stack(&stack);
-}
 
-int main(void)
-{
-    int one[1] = {42};
-    int sorted[4] = {1, 2, 3, 4};
-    int reverse[4] = {4, 3, 2, 1};
-    int partial[4] = {2, 1, 3, 4};
+// static void do_nothing(void *content)
+// {
+//     (void)content;
+// }
 
-    print_disorder("NULL: ", NULL);
-    run_test("One element: ", one, 1);
-    run_test("Sorted: ", sorted, 4);
-    run_test("Reverse: ", reverse, 4);
-    run_test("Partial: ", partial, 4);
-    return (0);
-}
+// static t_list *make_stack(int *values, int size)
+// {
+//     t_list *stack;
+//     int i;
+
+//     stack = NULL;
+//     i = 0;
+//     while (i < size)
+//     {
+//         ft_lstadd_back(&stack, ft_lstnew(&values[i]));
+//         i++;
+//     }
+//     return (stack);
+// }
+
+// static void free_stack(t_list **stack)
+// {
+//     ft_lstclear(stack, do_nothing);
+// }
+
+// static void print_disorder(char *label, t_list *stack)
+// {
+//     ft_putstr_fd(label, 1);
+//     ft_putnbr_fd((int)(compute_disorder(stack) * 1000000), 1);
+//     ft_putchar_fd('\n', 1);
+// }
+
+// static void run_test(char *label, int *values, int size)
+// {
+//     t_list *stack;
+
+//     stack = make_stack(values, size);
+//     print_disorder(label, stack);
+//     free_stack(&stack);
+// }
+
+// int main(void)
+// {
+//     int one[1] = {42};
+//     int sorted[4] = {1, 2, 3, 4};
+//     int reverse[4] = {4, 3, 2, 1};
+//     int partial[4] = {2, 1, 3, 4};
+
+//     print_disorder("NULL: ", NULL);
+//     run_test("One element: ", one, 1);
+//     run_test("Sorted: ", sorted, 4);
+//     run_test("Reverse: ", reverse, 4);
+//     run_test("Partial: ", partial, 4);
+//     return (0);
+// }
 
 
 
