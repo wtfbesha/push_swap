@@ -44,7 +44,8 @@ void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
 void	sort_simple(t_list **a, t_list **b);
 void	ft_merge_sort(t_list **a, t_list **b);
-void 	ft_adaptive_sort(t_list **a, t_list **b);
+void	sort_medium(t_list **a, t_list **b);
+void	ft_adaptive_sort(t_list **a, t_list **b, double disorder);
 
 int		parse_args(int argc, char **argv, int *strategy,
 			int *bench, int *numbers_start);
@@ -53,5 +54,8 @@ int		validate_args(int argc, char **argv, int start,
 t_list	*init_stack_a(int *numbers, int count);
 
 double compute_disorder(t_list *stack);
+int     is_sorted(t_list *stack);
+int     get_max_pos(t_list *stack);
+int     index_stack(t_list *stack);
 
 #endif
