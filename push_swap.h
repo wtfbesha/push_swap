@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft/libft.h"
@@ -23,9 +22,6 @@
 # define MEDIUM 2
 # define COMPLEX 3
 
-
-int     list_size(t_list *list);
-void    bubble_sort(t_list **a);
 
 /**/
 void    sa(t_list **a);
@@ -47,11 +43,9 @@ void    rrr(t_list **a, t_list **b);
 void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
 void	sort_simple(t_list **a, t_list **b);
+void	ft_merge_sort(t_list **a, t_list **b);
 void	sort_medium(t_list **a, t_list **b);
-
-// void ft_block_based_sort(t_list *a, t_list *b);
-// void ft_merge_sort(t_list *a, t_list *b);
-// void ft_adaptive_sort(t_list *a, t_list *b, double disorder);
+void ft_adaptive_sort(t_list **a, t_list **b, double disorder);
 
 int		parse_args(int argc, char **argv, int *strategy,
 			int *bench, int *numbers_start);

@@ -10,23 +10,94 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/09 14:00:00 by neric            ###   ###.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "push_swap.h"
 
+<<<<<<< HEAD
+static void	error_exit(void)
+{
+	write(2, "Error\n", 6);
+}
+
+static int	is_sorted(t_list *a)
+{
+	while (a && a->next)
+	{
+		if (*(int *)a->content > *(int *)a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
+static void	run_strategy(t_list **a, t_list **b, int strategy)
+{
+	if (strategy == SIMPLE)
+		sort_simple(a, b);
+	else if (strategy == COMPLEX)
+		ft_merge_sort(a, b);
+}
+
+int	main(int argc, char **argv)
+{
+	int		strategy;
+	int		bench;
+	int		start;
+	int		count;
+	int		*numbers;
+	t_list	*a;
+	t_list	*b;
+
+	if (argc == 1)
+		return (0);
+	if (!parse_args(argc, argv, &strategy, &bench, &start))
+		return (error_exit(), 1);
+	if (!validate_args(argc, argv, start, &numbers, &count))
+		return (error_exit(), 1);
+	a = init_stack_a(numbers, count);
+	free(numbers);
+	if (!a)
+		return (error_exit(), 1);
+	b = NULL;
+	if (!is_sorted(a))
+		run_strategy(&a, &b, strategy);
+	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
+	return (0);
+}
+
+
+
+// #include "push_swap.h"
+
+
+// // static void print_disorder(char *label, t_list *stack)
+// // {
+// //     ft_putstr_fd(label, 1);
+// //     ft_putnbr_fd((int)(compute_disorder(stack) * 1000000), 1);
+// //     ft_putchar_fd('\n', 1);
+// // }
+
+// int main(void)
+// {
+//     int one[1] = {42};
+//     int sorted[4] = {1, 2, 3, 4};
+//     int reverse[4] = {4, 3, 2, 1};
+//     int partial[4] = {2, 1, 3, 4};
+
+//     print_disorder("NULL: ", NULL);
+//     run_test("One element: ", one, 1);
+//     run_test("Sorted: ", sorted, 4);
+//     run_test("Reverse: ", reverse, 4);
+//     run_test("Partial: ", partial, 4);
+//     return (0);
+// }
+
+// static void do_nothing(void *content)
+// {
+//     (void)content;
+// }
+
+=======
 int	main(int argc, char **argv)
 {
 	int		strategy;
@@ -114,6 +185,7 @@ int	main(int argc, char **argv)
 //     (void)content;
 // }
 
+>>>>>>> main
 // static t_list *make_stack(int *values, int size)
 // {
 //     t_list *stack;
