@@ -12,6 +12,27 @@
 
 #include "push_swap.h"
 
-void ft_adaptive_sort(t_list **a, t_list **b, double disorder) {
+void ft_adaptive_sort(t_list **a, t_list **b) {
+    int size;
+    double  disorder;
 
+    size = ft_lstsize(*a);
+    if (size <= 1)
+        return ;
+    
+    if (size <= 5)
+    {
+        if (size <= 3)
+            sort_three(a);
+        else
+            sort_five(a, b);
+        return ;
+    }
+    disorder = compute_disorder(*a);
+    if (disorder < 0.2)
+        sort_simple(a, b);
+    else if (disorder < 0.5)
+        sort_medium(a, b);
+    else
+        ft_merge_sort(a, b);
 }
