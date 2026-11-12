@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   parse_args.c                                      :+:      :+:    :+:    */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
-/*   Updated: 2026/11/12 17:47:19 by mtorfs          ###   ########.fr        */
+/*   Updated: 2026/11/12 18:09:35 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	set_strategy(char *arg, int *strategy, int *selected)
 	return (1);
 }
 
-int parse_args(int argc, char * *argv, int * strategy,
+int	parse_args(int argc, char **argv, int *strategy,
 	int	*bench, int *numbers_start)
 {
 	int	i;
