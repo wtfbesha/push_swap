@@ -10,59 +10,59 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// #include "push_swap.h"
 
-static void	error_exit(void)
-{
-	write(2, "Error\n", 6);
-}
+// static void	error_exit(void)
+// {
+// 	write(2, "Error\n", 6);
+// }
 
-static int	is_sorted(t_list *a)
-{
-	while (a && a->next)
-	{
-		if (*(int *)a->content > *(int *)a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
+// static int	is_sorted(t_list *a)
+// {
+// 	while (a && a->next)
+// 	{
+// 		if (*(int *)a->content > *(int *)a->next->content)
+// 			return (0);
+// 		a = a->next;
+// 	}
+// 	return (1);
+// }
 
-static void	run_strategy(t_list **a, t_list **b, int strategy)
-{
-	if (strategy == SIMPLE)
-		sort_simple(a, b);
-	else if (strategy == COMPLEX)
-		ft_merge_sort(a, b);
-}
+// static void	run_strategy(t_list **a, t_list **b, int strategy)
+// {
+// 	if (strategy == SIMPLE)
+// 		sort_simple(a, b);
+// 	else if (strategy == COMPLEX)
+// 		ft_merge_sort(a, b);
+// }
 
-int	main(int argc, char **argv)
-{
-	int		strategy;
-	int		bench;
-	int		start;
-	int		count;
-	int		*numbers;
-	t_list	*a;
-	t_list	*b;
+// int	main(int argc, char **argv)
+// {
+// 	int		strategy;
+// 	int		bench;
+// 	int		start;
+// 	int		count;
+// 	int		*numbers;
+// 	t_list	*a;
+// 	t_list	*b;
 
-	if (argc == 1)
-		return (0);
-	if (!parse_args(argc, argv, &strategy, &bench, &start))
-		return (error_exit(), 1);
-	if (!validate_args(argc, argv, start, &numbers, &count))
-		return (error_exit(), 1);
-	a = init_stack_a(numbers, count);
-	free(numbers);
-	if (!a)
-		return (error_exit(), 1);
-	b = NULL;
-	if (!is_sorted(a))
-		run_strategy(&a, &b, strategy);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	return (0);
-}
+// 	if (argc == 1)
+// 		return (0);
+// 	if (!parse_args(argc, argv, &strategy, &bench, &start))
+// 		return (error_exit(), 1);
+// 	if (!validate_args(argc, argv, start, &numbers, &count))
+// 		return (error_exit(), 1);
+// 	a = init_stack_a(numbers, count);
+// 	free(numbers);
+// 	if (!a)
+// 		return (error_exit(), 1);
+// 	b = NULL;
+// 	if (!is_sorted(a))
+// 		run_strategy(&a, &b, strategy);
+// 	ft_lstclear(&a, free);
+// 	ft_lstclear(&b, free);
+// 	return (0);
+// }
 
 
 
@@ -96,47 +96,47 @@ int	main(int argc, char **argv)
 //     (void)content;
 // }
 
-int	main(int argc, char **argv)
-{
-	int		strategy;
-	int		bench;
-	int		start;
-	int		count;
-	int		*numbers;
-	t_list	*a;
-	t_list	*b;
+// int	main(int argc, char **argv)
+// {
+// 	int		strategy;
+// 	int		bench;
+// 	int		start;
+// 	int		count;
+// 	int		*numbers;
+// 	t_list	*a;
+// 	t_list	*b;
 
-	if (argc == 1)
-		return (0);
-	if (!parse_args(argc, argv, &strategy, &bench, &start))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	if (!validate_args(argc, argv, start, &numbers, &count))
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	a = init_stack_a(numbers, count);
-	free(numbers);
-	if (!a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	b = NULL;
-	if (strategy == MEDIUM || strategy == ADAPTIVE)
-		sort_medium(&a, &b);
-	else if (strategy == SIMPLE)
-		sort_simple(&a, &b);
-	else
-		sort_medium(&a, &b);
-	ft_lstclear(&a, free);
-	ft_lstclear(&b, free);
-	(void)bench;
-	return (0);
-}
+// 	if (argc == 1)
+// 		return (0);
+// 	if (!parse_args(argc, argv, &strategy, &bench, &start))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	if (!validate_args(argc, argv, start, &numbers, &count))
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	a = init_stack_a(numbers, count);
+// 	free(numbers);
+// 	if (!a)
+// 	{
+// 		write(2, "Error\n", 6);
+// 		return (1);
+// 	}
+// 	b = NULL;
+// 	if (strategy == MEDIUM || strategy == ADAPTIVE)
+// 		sort_medium(&a, &b);
+// 	else if (strategy == SIMPLE)
+// 		sort_simple(&a, &b);
+// 	else
+// 		sort_medium(&a, &b);
+// 	ft_lstclear(&a, free);
+// 	ft_lstclear(&b, free);
+// 	(void)bench;
+// 	return (0);
+// }
 
 // #include "push_swap.h"
 
