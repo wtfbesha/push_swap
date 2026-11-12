@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #ifndef PUSH_SWAP_STACK_UTILS_H
-// # define PUSH_SWAP_STACK_UTILS_H
+#ifndef PUSH_SWAP_STACK_UTILS_H
+# define PUSH_SWAP_STACK_UTILS_H
 
 // # define ADAPTIVE 0
 // # define SIMPLE 1
@@ -24,4 +24,4 @@
 // // int validate_args(int argc, char **argv, int start);
 // // int is_valid_integer(char *str);
 
-// #endif
+#endif
