@@ -30,7 +30,7 @@ void ft_adaptive_sort(t_list **a, t_list **b) {
     }
     disorder = compute_disorder(*a);
     if (disorder < 0.2)
-        sort_simple;
+        sort_simple(a, b);
     else if (disorder < 0.5)
         sort_medium(a, b);
     else

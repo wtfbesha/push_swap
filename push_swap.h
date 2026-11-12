@@ -44,8 +44,7 @@ void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
 void	sort_simple(t_list **a, t_list **b);
 void	ft_merge_sort(t_list **a, t_list **b);
-
-void ft_adaptive_sort(t_list **a, t_list **b);
+void 	ft_adaptive_sort(t_list **a, t_list **b);
 
 int		parse_args(int argc, char **argv, int *strategy,
 			int *bench, int *numbers_start);

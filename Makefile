@@ -24,7 +24,8 @@ SRCS = push_swap.c \
        operations/swap/sb.c \
        disorder/compute_disorder.c \
        strategies/simple.c \
-       strategies/complex.c
+       strategies/complex.c \
+       strategies/adaptive.c
 
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
