@@ -228,8 +228,8 @@ This is a group project completed by two learners.
 
 | Learner | Contributions |
 | --- | --- |
-| [neric](https://github.com/NiyongaboEric) | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
-| [mtorfs](https://github.com/wtfbesha) | `[Add this learner’s specific contributions, such as algorithms, parsing, testing, or documentation.]` |
+| [neric](https://github.com/NiyongaboEric) | `[made the complex and adaptive algorithm alongside making sure the parsing and stack was ready for use.]` |
+| [mtorfs](https://github.com/wtfbesha) | `[made the simple and medium sorting algorithms and also did the operations and disorder.]` |
 
 Replace the bracketed text with an accurate description of each learner’s work before submitting.
 
