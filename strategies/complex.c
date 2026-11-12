@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	val(t_list *node)
 {
@@ -98,11 +98,6 @@ static void	merge(t_list **a, t_list **b, int w, int n_w, int n_s)
 	}
 }
 
-/*
-** Bring the merged run back to the top.
-** The rotations performed during merge leave the old tail
-** above the merged run.
-*/
 static void	restore(t_list **a, t_list **b, int w, int n)
 {
 	while (n > 0)
@@ -112,12 +107,6 @@ static void	restore(t_list **a, t_list **b, int w, int n)
 	}
 }
 
-/*
-** Sort the top n elements of stack w in ascending order.
-**
-** w = 0: stack A
-** w = 1: stack B
-*/
 static void	msort(t_list **a, t_list **b, int w, int n)
 {
 	int	left;
@@ -133,39 +122,19 @@ static void	msort(t_list **a, t_list **b, int w, int n)
 	}
 	left = n / 2;
 	right = n - left;
-
-	/*
-	** Move the first half to the other stack.
-	*/
 	i = left;
 	while (i > 0)
 	{
 		mv(a, b, w);
 		i--;
 	}
-
-	/*
-	** Sort the two halves independently.
-	*/
 	msort(a, b, w, right);
 	msort(a, b, 1 - w, left);
-
-	/*
-	** Merge both sorted halves onto stack w.
-	*/
 	merge(a, b, w, right, left);
-
-	/*
-	** Restore the merged run if there are elements below it.
-	*/
 	if ((int)ft_lstsize(*stk(a, b, w)) > n)
 		restore(a, b, w, n);
 }
 
-/*
-** Public function.
-** Sort all elements of A in ascending order.
-*/
 void	ft_merge_sort(t_list **a, t_list **b)
 {
 	int	size;

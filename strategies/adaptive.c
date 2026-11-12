@@ -12,4 +12,6 @@
 
 #include "push_swap.h"
 
-void ft_adaptive_sort(t_list *a, t_list *b, double disorder) {}
+void ft_adaptive_sort(t_list **a, t_list **b, double disorder) {
+
+}
