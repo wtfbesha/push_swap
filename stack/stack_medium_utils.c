@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   stack_medium_utils.c                              :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
+/*   Updated: 2026/11/12 17:47:24 by mtorfs          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_sorted(t_list *stack)
 {
 	while (stack && stack->next)
 	{
-		if (*(int *)stack->content > *(int *)stack->next->content)
+		if (*(int *) stack->content > *(int *) stack->next->content)
 			return (0);
 		stack = stack->next;
 	}
@@ -25,20 +25,20 @@ int	is_sorted(t_list *stack)
 
 int	get_max_pos(t_list *stack)
 {
-	int		max;
-	int		pos;
-	int		max_pos;
+	int	max;
+	int	pos;
+	int	max_pos;
 
 	if (!stack)
 		return (-1);
-	max = *(int *)stack->content;
+	max = *(int *) stack->content;
 	pos = 0;
 	max_pos = 0;
 	while (stack)
 	{
-		if (*(int *)stack->content > max)
+		if (*(int *) stack->content > max)
 		{
-			max = *(int *)stack->content;
+			max = *(int *) stack->content;
 			max_pos = pos;
 		}
 		stack = stack->next;
@@ -46,6 +46,7 @@ int	get_max_pos(t_list *stack)
 	}
 	return (max_pos);
 }
+
 int	index_stack(t_list *stack)
 {
 	t_list	*current;
@@ -58,14 +59,14 @@ int	index_stack(t_list *stack)
 	size = ft_lstsize(stack);
 	if (size <= 0)
 		return (0);
-	values = malloc(sizeof(int) * size);
+	values = malloc(sizeof(int)*size);
 	if (!values)
 		return (0);
 	current = stack;
 	i = 0;
 	while (current)
 	{
-		values[i++] = *(int *)current->content;
+		values[i++] = *(int *) current->content;
 		current = current->next;
 	}
 	current = stack;
@@ -80,7 +81,7 @@ int	index_stack(t_list *stack)
 				rank++;
 			j++;
 		}
-		*(int *)current->content = rank;
+		*(int *) current->content = rank;
 		current = current->next;
 		i++;
 	}
