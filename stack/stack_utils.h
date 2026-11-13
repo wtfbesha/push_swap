@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack_utils.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   stack_utils.h                                     :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
+/*   Updated: 2026/11/12 17:47:31 by mtorfs          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_STACK_UTILS_H
-# define PUSH_SWAP_STACK_UTILS_H
+#ifndef STACK_UTILS_H
+# define STACK_UTILS_H
 
 // # define ADAPTIVE 0
 // # define SIMPLE 1

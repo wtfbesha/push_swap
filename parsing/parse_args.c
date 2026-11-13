@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
+/*                                                       :::      ::::::::    */
 /*   parse_args.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
+/*   Updated: 2026/11/12 18:09:35 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int is_bench(char *arg, int *bench)
+static int	is_bench(char *arg, int *bench)
 {
 	if (ft_strncmp(arg, "--bench", 8) == 0)
 	{
@@ -24,7 +24,7 @@ static int is_bench(char *arg, int *bench)
 	return (-1);
 }
 
-static int set_strategy(char *arg, int *strategy, int *selected)
+static int	set_strategy(char *arg, int *strategy, int *selected)
 {
 	int	new_strategy;
 
@@ -46,7 +46,7 @@ static int set_strategy(char *arg, int *strategy, int *selected)
 }
 
 int	parse_args(int argc, char **argv, int *strategy,
-		int *bench, int *numbers_start)
+	int	*bench, int *numbers_start)
 {
 	int	i;
 	int	result;
