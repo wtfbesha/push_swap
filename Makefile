@@ -28,7 +28,12 @@ SRCS = push_swap.c \
        strategies/complex.c \
        stack/stack_medium_utils.c \
        strategies/medium.c \
-       benchmark/benchmark.c
+       benchmark/benchmark.c \
+       stack/stack_complex_utils.c \
+       stack/stack_complex_utils2.c \
+
+
+
 
 OBJS = $(SRCS:.c=.o)
 HEADER = push_swap.h
