@@ -78,7 +78,6 @@ static int	top_sorted(t_list *s, int n)
 	return (n == 0);
 }
 
-
 static void	merge(t_list **a, t_list **b, int w, int n_w, int n_s)
 {
 	while (n_w > 0 || n_s > 0)
