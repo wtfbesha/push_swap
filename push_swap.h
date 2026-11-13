@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neric <neric@student.42belgium.be>         +#+  +:+       +#+        */
+/*   By: mtorfs <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/06 14:37:48 by neric             #+#    #+#             */
-/*   Updated: 2026/11/06 14:37:58 by neric            ###   ########.fr       */
+/*   Created: 2026/11/13 14:38:46 by mtorfs            #+#    #+#             */
+/*   Updated: 2026/11/13 14:47:08 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,28 @@ int		parse_args(int argc, char **argv, int *strategy,
 			int *bench, int *numbers_start);
 int		validate_args(int argc, char **argv, int start,
 			int **numbers, int *count);
-/* */
 t_list	*init_stack_a(int *numbers, int count);
-/* */
-void    sa(t_list **a);
-void    sb(t_list **b);
-void    ss(t_list **a, t_list **b);
-/* */
-void    pa(t_list **a, t_list **b);
-void    pb(t_list **a, t_list **b);
-/* */
-void    ra(t_list **a);
-void    rb(t_list **b);
-void    rr(t_list **a, t_list **b);
-/* */
-void    rra(t_list **a);
-void    rrb(t_list **b);
-void    rrr(t_list **a, t_list **b);
-/* */
+
+void	sa(t_list **a);
+void	sb(t_list **b);
+void	ss(t_list **a, t_list **b);
+
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
+
 void	sort_three(t_list **a);
 void	sort_five(t_list **a, t_list **b);
-/* */
+
 void	sort_simple(t_list **a, t_list **b);
-/* */
+/**/
 void	ft_merge_sort(t_list **a, t_list **b);
 int		complex_val(t_list *node);
 t_list	**complex_stk(t_list **a, t_list **b, int w);
@@ -71,14 +70,15 @@ void	complex_swp(t_list **a, t_list **b, int w);
 void	complex_move_chunks(t_list **a, t_list **b, int w, int left);
 /* */
 void	sort_medium(t_list **a, t_list **b);
-int     is_sorted(t_list *stack);
-int     get_max_pos(t_list *stack);
-int     index_stack(t_list *stack);
-/* */
+
+int		is_sorted(t_list *stack);
+int		get_max_pos(t_list *stack);
+int		index_stack(t_list *stack);
+
 void	ft_adaptive_sort(t_list **a, t_list **b);
-/* */
-double compute_disorder(t_list *stack);
-/* */
+double	compute_disorder(t_list *stack);
+void	print_benchmark(int strategy, double disorder);
+
 long int	ft_bench_ops(int op_type, int action);
-void		print_benchmark(int strategy, double disorder);
+
 #endif
