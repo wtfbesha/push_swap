@@ -112,7 +112,7 @@ static int	parse_argument(char *arg, int *numbers, int *count)
 	return (1);
 }
 
-int validate_args(int argc, char * *argv, int start,
+int validate_args(int argc, char **argv, int start,
 	int	**numbers, int *count)
 {
 	int	i;
