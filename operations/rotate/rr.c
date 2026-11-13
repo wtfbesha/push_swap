@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   rr.c                                              :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: mtorfs <marvin@42.fr>                     #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
-/*   Updated: 2026/11/12 21:53:57 by mtorfs          ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   rr.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtorfs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#             */
+/*   Updated: 2026/11/12 21:53:57 by mtorfs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_list **a, t_list **b)
+static int	rotate_single_stack(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
-	int		changed;
 
-	changed = 0;
-	if (a && *a && (*a)->next)
-	{
-		first = *a;
-		*a = (*a)->next;
-		last = *a;
-		while (last->next)
-			last = last->next;
-		last->next = first;
-		first->next = NULL;
-		changed = 1;
-	}
-	if (b && *b && (*b)->next)
-	{
-		first = *b;
-		*b = (*b)->next;
-		last = *b;
-		while (last->next)
-			last = last->next;
-		last->next = first;
-		first->next = NULL;
-		changed = 1;
-	}
-	if (changed)
+	if (!stack || !*stack || !(*stack)->next)
+		return (0);
+	first = *stack;
+	*stack = (*stack)->next;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
+	return (1);
+}
+
+void	rr(t_list **a, t_list **b)
+{
+	int	changed_a;
+	int	changed_b;
+
+	changed_a = rotate_single_stack(a);
+	changed_b = rotate_single_stack(b);
+	if (changed_a || changed_b)
 	{
 		ft_bench_ops(OP_RR, 1);
 		ft_putendl_fd("rr", 1);
