@@ -62,6 +62,13 @@ void	sort_five(t_list **a, t_list **b);
 void	sort_simple(t_list **a, t_list **b);
 /* */
 void	ft_merge_sort(t_list **a, t_list **b);
+int		complex_val(t_list *node);
+t_list	**complex_stk(t_list **a, t_list **b, int w);
+void	complex_mv(t_list **a, t_list **b, int from);
+void	complex_rot(t_list **a, t_list **b, int w);
+void	complex_rrot(t_list **a, t_list **b, int w);
+void	complex_swp(t_list **a, t_list **b, int w);
+void	complex_move_chunks(t_list **a, t_list **b, int w, int left);
 /* */
 void	sort_medium(t_list **a, t_list **b);
 int     is_sorted(t_list *stack);
