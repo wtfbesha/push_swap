@@ -65,12 +65,27 @@ static void	restore_chunk(t_list **a, t_list **b)
 	}
 }
 
+static void	execute_chunks(t_list **a, t_list **b, int size, int block_size)
+{
+	int	high;
+	int	low;
+
+	high = size - 1;
+	while (high >= 0)
+	{
+		low = high - block_size + 1;
+		if (low < 0)
+			low = 0;
+		push_chunk(a, b, low, high);
+		restore_chunk(a, b);
+		high = low - 1;
+	}
+}
+
 void	sort_medium(t_list **a, t_list **b)
 {
 	int	size;
 	int	block_size;
-	int	high;
-	int	low;
 
 	if (!a || !b || !*a || is_sorted(*a))
 		return ;
@@ -83,14 +98,5 @@ void	sort_medium(t_list **a, t_list **b)
 	if (!index_stack(*a))
 		return ;
 	block_size = get_block_size(size);
-	high = size - 1;
-	while (high >= 0)
-	{
-		low = high - block_size + 1;
-		if (low < 0)
-			low = 0;
-		push_chunk(a, b, low, high);
-		restore_chunk(a, b);
-		high = low - 1;
-	}
+	execute_chunks(a, b, size, block_size);
 }
