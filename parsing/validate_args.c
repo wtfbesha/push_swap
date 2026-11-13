@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       :::      ::::::::    */
-/*   validate_args.c                                   :+:      :+:    :+:    */
+/*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                   +:+ +:+         +:+      */
 /*   By: mtorfs <marvin@42.fr>                     #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
-/*   Updated: 2026/11/12 21:56:55 by mtorfs          ###   ########.fr        */
+/*   Updated: 2026/11/13 13:34:23 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,7 @@ static int	parse_argument(char *arg, int *numbers, int *count)
 	return (1);
 }
 
-int validate_args(int argc, char **argv, int start,
-	int	**numbers, int *count)
+int	validate_args(int argc, char **argv, int start, int **numbers, int *count)
 {
 	int	i;
 	int	total;
@@ -131,7 +130,7 @@ int validate_args(int argc, char **argv, int start,
 	}
 	if (total == 0)
 		return (0);
-	array = malloc(sizeof(int)*total);
+	array = malloc(sizeof(int) * total);
 	if (!array)
 		return (0);
 	i = start;
