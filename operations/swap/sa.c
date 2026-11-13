@@ -3,10 +3,10 @@
 /*                                                       :::      ::::::::    */
 /*   sa.c                                              :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*   By: mtorfs <marvin@42.fr>                     #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
-/*   Updated: 2026/11/12 17:46:54 by mtorfs          ###   ########.fr        */
+/*   Updated: 2026/11/12 21:54:24 by mtorfs          ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	sa(t_list **a)
 	t_list	*first;
 	t_list	*second;
 
-    if (!a || !*a || !(*a)->next)
-        return ;
-    first = *a;
-    second = first->next;
-    first->next = second->next;
-    second->next = first;
-    *a = second;
-    ft_bench_ops(OP_SA, 1);
-    ft_putendl_fd("sa", 1);
+	if (!a || !*a || !(*a)->next)
+		return ;
+	first = *a;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*a = second;
+	ft_bench_ops(OP_SA, 1);
+	ft_putendl_fd("sa", 1);
 }
