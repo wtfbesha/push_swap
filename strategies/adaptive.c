@@ -37,8 +37,24 @@ void	ft_adaptive_sort(t_list **a, t_list **b)
 	// 	sort_medium(a, b);
 	// else
 	// 	ft_merge_sort(a, b);
+
+	// if (disorder < 0.2)
+    // 	sort_simple(a, b);
+	// else
+	// 	sort_medium(a, b);
+
+
+	// if (disorder < 0.2)
+	// 	sort_simple(a, b);
+	// else if (size < 2000)
+	// 	sort_medium(a, b);
+	// else
+	// 	ft_merge_sort(a, b);
+
 	if (disorder < 0.2)
-    	sort_simple(a, b);
-	else
+		sort_simple(a, b);
+	else if (disorder < 0.5)
 		sort_medium(a, b);
+	else
+		ft_merge_sort(a, b);
 }

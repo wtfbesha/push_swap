@@ -23,6 +23,8 @@ long int	ft_bench_ops(int op_type, int action)
 		counts[op_type]++;
 		return (1);
 	}
+	if (action == 2 && op_type >= 0 && op_type <= 10)
+		return (counts[op_type]);
 	if (action == -1)
 	{
 		i = 0;
@@ -69,6 +71,34 @@ static void	print_disorder(double disorder)
 	ft_putendl_fd("%", 2);
 }
 
+static void	print_op_breakdown(void)
+{
+	char	*names[11];
+	int		i;
+
+	names[0] = "sa";
+	names[1] = "sb";
+	names[2] = "ss";
+	names[3] = "pa";
+	names[4] = "pb";
+	names[5] = "ra";
+	names[6] = "rb";
+	names[7] = "rr";
+	names[8] = "rra";
+	names[9] = "rrb";
+	names[10] = "rrr";
+	i = 0;
+	while (i < 11)
+	{
+		ft_putstr_fd("[bench] ", 2);
+		ft_putstr_fd(names[i], 2);
+		ft_putstr_fd(": ", 2);
+		ft_putnbr_fd(ft_bench_ops(i, 2), 2);
+		ft_putendl_fd("", 2);
+		i++;
+	}
+}
+
 void	print_benchmark(int strategy, double disorder)
 {
 	long int	total_ops;
@@ -77,6 +107,7 @@ void	print_benchmark(int strategy, double disorder)
 	ft_putendl_fd("=== PUSH_SWAP BENCHMARK ===", 2);
 	print_disorder(disorder);
 	print_strategy_info(strategy);
+	print_op_breakdown();
 	ft_putstr_fd("[bench] Total Operations: ", 2);
 	ft_putnbr_fd(total_ops, 2);
 	ft_putendl_fd("", 2);
