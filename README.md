@@ -1,6 +1,6 @@
-*This project has been created as part of the 42 curriculum by neric, mtorfs.*
-
 # push_swap
+
+*This project has been created as part of the 42 curriculum by neric and mtorfs.*
 
 <p align="center">
   <strong>Because swap_push doesn't feel as natural.</strong><br>
@@ -61,7 +61,9 @@ An inversion is a pair of values where a larger number appears before a smaller 
 
 ```text
 inversions = number of pairs (i, j) where i < j and a[i] > a[j]
+
 total_pairs = n × (n - 1) / 2
+
 disorder = inversions / total_pairs
 ```
 
@@ -121,7 +123,9 @@ The stacks store the input values across the sorting process, requiring `O(n)` s
 
 ```bash
 git clone git@github.com:wtfbesha/push_swap.git
+
 cd push_swap
+
 make
 ```
 
@@ -143,7 +147,9 @@ Examples:
 
 # Use a specific strategy
 ./push_swap --simple 42 7 19 3 28
+
 ./push_swap --medium 42 7 19 3 28
+
 ./push_swap --complex 42 7 19 3 28
 
 # Use adaptive mode by default
@@ -182,7 +188,8 @@ The program uses the standard Push_swap instruction set. Each printed instructio
 Add `--bench` to print benchmark information after sorting. The report includes:
 
 - Input disorder as a percentage, formatted to two decimal places.
-- The name of the strategy used and its complexity class.
+- The name of the strategy used.
+- The complexity information reported by the program. Adaptive mode currently identifies its strategy as dynamic.
 - The total number of operations.
 - The count of each operation type: `sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, and `rrr`.
 
@@ -208,6 +215,7 @@ If an external checker is available, use it to verify the generated sequence:
 
 ```bash
 ARG="4 67 3 87 23"
+
 ./push_swap --complex $ARG | ./checker_linux $ARG
 ```
 
@@ -220,7 +228,7 @@ The project subject gives the following operation-count targets for random input
 | 100 numbers | Fewer than 2,000 operations | Fewer than 1,500 operations | Fewer than 700 operations |
 | 500 numbers | Fewer than 12,000 operations | Fewer than 8,000 operations | Fewer than 5,500 operations |
 
-Actual operation counts depend on the input order and the selected strategy.
+Actual operation counts depend on the input order and the selected strategy. These values are targets, not guaranteed results for every random input.
 
 ## Team and contributions
 
@@ -228,10 +236,8 @@ This is a group project completed by two learners.
 
 | Learner | Contributions |
 | --- | --- |
-| [neric](https://github.com/NiyongaboEric) | `[made the complex and adaptive algorithm alongside making sure the parsing and stack was ready for use.]` |
-| [mtorfs](https://github.com/wtfbesha) | `[made the simple and medium sorting algorithms and also did the operations and disorder.]` |
-
-Replace the bracketed text with an accurate description of each learner’s work before submitting.
+| [neric](https://github.com/NiyongaboEric) | Developed the complex and adaptive sorting strategies, and worked on parsing and stack implementation. |
+| [mtorfs](https://github.com/wtfbesha) | Developed the simple and medium sorting strategies, and worked on the operations and disorder calculation. |
 
 ## Resources
 
@@ -243,4 +249,22 @@ Replace the bracketed text with an accurate description of each learner’s work
 
 ### AI use
 
-AI assistance was used to draft and organize this README, including its explanations of the disorder metric, strategy choices, complexity model, and command-line usage. AI was not used in this documentation exchange to write the project’s C implementation. The team should verify that every description in this README matches the code. Any other AI use during the project should also be documented here.
+AI assistance was used during the project to help draft and organize this README, explain concepts, and review parts of the project. AI assistance was also used to help analyze and test project behavior. The C implementation was written by the team. The team remains responsible for the code, the documentation, and verifying that all descriptions accurately reflect the final implementation.
+
+## Testing and verification notes
+
+During development, the project was tested with different input sizes and input orders.
+
+The tests included:
+
+- Valid and invalid input cases.
+- Integer boundaries and overflow cases.
+- Duplicate number detection.
+- All four sorting strategies.
+- Sorted, reverse-sorted, and randomly generated inputs.
+- Verification that the generated operations leave Stack A sorted and Stack B empty.
+- AddressSanitizer and UndefinedBehaviorSanitizer checks on tested cases.
+
+In performance testing, operation counts varied depending on the input and selected strategy. In 100 random tests using Adaptive mode with 500 numbers, 48 tests reached or exceeded the 12,000-operation pass target. This indicates that the Adaptive strategy may need further tuning to meet that target more consistently.
+
+These results describe the tests performed during development and should not be interpreted as a guarantee of performance on every input.

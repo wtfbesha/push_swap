@@ -12,10 +12,8 @@
 
 #include "push_swap.h"
 
-static void	ft_error_exit(int *numbers)
+static void	ft_error_exit(void)
 {
-	if (numbers)
-		free(numbers);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -32,37 +30,50 @@ static void	run_strategy(t_list **a, t_list **b, int strategy)
 		ft_adaptive_sort(a, b);
 }
 
+static t_list	*init_stack(int argc, char **argv, int start)
+{
+	int		params[2];
+	int		*numbers;
+	t_list	*a;
+
+	params[0] = start;
+	params[1] = 0;
+	if (!validate_args(argc, argv, params, &numbers))
+		return (NULL);
+	a = init_stack_a(numbers, params[1]);
+	free(numbers);
+	return (a);
+}
+
+static void	execute_sort(t_list **a, t_list **b, int *params)
+{
+	double	disorder;
+
+	disorder = 0.0;
+	if (params[1])
+		disorder = compute_disorder(*a);
+	ft_bench_ops(0, -1);
+	if (!is_sorted(*a))
+		run_strategy(a, b, params[0]);
+	if (params[1])
+		print_benchmark(params[0], disorder);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	int		strategy;
-	int		bench;
-	int		start;
-	int		count;
-	int		*numbers;
-	double	disorder;
+	int		params[3];
 
 	if (argc < 2)
 		return (0);
-	a = NULL;
-	b = NULL;
-	if (!parse_args(argc, argv, &strategy, &bench, &start))
-		ft_error_exit(NULL);
-	if (!validate_args(argc, argv, start, &numbers, &count))
-		ft_error_exit(NULL);
-	a = init_stack_a(numbers, count);
-	free(numbers);
+	if (!parse_args(argc, argv, params))
+		ft_error_exit();
+	a = init_stack(argc, argv, params[2]);
 	if (!a)
-		ft_error_exit(NULL);
-	disorder = 0.0;
-	if (bench)
-		disorder = compute_disorder(a);
-	ft_bench_ops(0, -1);
-	if (!is_sorted(a))
-		run_strategy(&a, &b, strategy);
-	if (bench)
-		print_benchmark(strategy, disorder);
+		ft_error_exit();
+	b = NULL;
+	execute_sort(&a, &b, params);
 	ft_lstclear(&a, free);
 	ft_lstclear(&b, free);
 	return (0);

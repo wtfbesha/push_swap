@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mtorfs <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/13 14:38:46 by mtorfs            #+#    #+#             */
-/*   Updated: 2026/11/13 14:47:08 by mtorfs           ###   ########.fr       */
+/*                                                   +:+ +:+         +:+      */
+/*   By: mtorfs <mtorfs@student.42belgium.be>      #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
+/*   Updated: 2026/11/12 18:09:35 by mtorfs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,9 @@
 long int	ft_bench_ops(int op_type, int action);
 void		print_benchmark(int strategy, double disorder);
 /* Argument Parsing */
-int			parse_args(int argc, char **argv, int *strategy,
-				int *bench, int *numbers_start);
+int			parse_args(int argc, char **argv, int *opts);
 /* Argument Validation */			
-int			validate_args(int argc, char **argv, int start,
-				int **numbers, int *count);
+int			validate_args(int argc, char **argv, int *params, int **numbers);
 /* Stack Initialization */
 t_list		*init_stack_a(int *numbers, int count);
 /* Sorting Operations */

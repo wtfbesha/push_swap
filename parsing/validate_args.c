@@ -3,7 +3,7 @@
 /*                                                       :::      ::::::::    */
 /*   validate_args.c                                    :+:      :+:    :+:   */
 /*                                                   +:+ +:+         +:+      */
-/*   By: mtorfs <marvin@42.fr>                     #+#  +:+       +#+         */
+/*   By: mtorfs <marvin@42.fr>                     +#+  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/06 14:37:48 by mtorfs           #+#    #+#              */
 /*   Updated: 2026/11/13 13:34:23 by mtorfs           ###   ########.fr       */
@@ -12,72 +12,18 @@
 
 #include "push_swap.h"
 
-static int	safe_atoi(char *str, int *number)
-{
-	int			i;
-	int			sign;
-	long int	value;
-	long int	limit;
-
-	i = 0;
-	if (!str || !str[i])
-		return (0);
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	if (!str[i])
-		return (0);
-	limit = 2147483647L;
-	if (sign == -1)
-		limit = 2147483648L;
-	value = 0;
-	while (str[i])
-	{
-		if (!ft_isdigit((unsigned char) str[i]))
-			return (0);
-		if (value > (limit - (str[i] - '0')) / 10)
-			return (0);
-		value = value * 10 + (str[i] - '0');
-		i++;
-	}
-	if (sign == -1 && value == 2147483648L)
-		*number = -2147483647 - 1;
-	else
-		*number = (int)(value * sign);
-	return (1);
-}
-
-static void	free_tokens(char **tokens)
-{
-	int	i;
-
-	i = 0;
-	while (tokens && tokens[i])
-	{
-		free(tokens[i]);
-		i++;
-	}
-	free(tokens);
-}
+int		safe_atoi(char *str, int *number);
+void	free_tokens(char **tokens);
+int		is_duplicate(int value, int *numbers, int count);
 
 static int	store_number(char *token, int *numbers, int *count)
 {
 	int	value;
-	int	i;
 
 	if (!safe_atoi(token, &value))
 		return (0);
-	i = 0;
-	while (i < *count)
-	{
-		if (numbers[i] == value)
-			return (0);
-		i++;
-	}
+	if (is_duplicate(value, numbers, *count))
+		return (0);
 	numbers[*count] = value;
 	(*count)++;
 	return (1);
@@ -112,37 +58,53 @@ static int	parse_argument(char *arg, int *numbers, int *count)
 	return (1);
 }
 
-int	validate_args(int argc, char **argv, int start, int **numbers, int *count)
+static int	count_numbers(int argc, char **argv, int start)
 {
 	int	i;
-	int	total;
-	int	*array;
+	int	count;
 
-	*numbers = NULL;
-	*count = 0;
-	total = 0;
 	i = start;
+	count = 0;
 	while (i < argc)
 	{
-		if (!parse_argument(argv[i], NULL, &total))
+		if (!parse_argument(argv[i], NULL, &count))
 			return (0);
 		i++;
 	}
-	if (total == 0)
-		return (0);
-	array = malloc(sizeof(int) * total);
-	if (!array)
-		return (0);
-	i = start;
+	return (count);
+}
+
+static int	fill_numbers(int argc, char **argv, int *params, int *array)
+{
+	int	i;
+
+	i = params[0];
 	while (i < argc)
 	{
-		if (!parse_argument(argv[i], array, count))
-		{
-			free(array);
-			*count = 0;
+		if (!parse_argument(argv[i], array, &params[1]))
 			return (0);
-		}
 		i++;
+	}
+	return (1);
+}
+
+int	validate_args(int argc, char **argv, int *params, int **numbers)
+{
+	int	*array;
+
+	*numbers = NULL;
+	params[1] = count_numbers(argc, argv, params[0]);
+	if (params[1] == 0)
+		return (0);
+	array = malloc(sizeof(int) * params[1]);
+	if (!array)
+		return (0);
+	params[1] = 0;
+	if (!fill_numbers(argc, argv, params, array))
+	{
+		free(array);
+		params[1] = 0;
+		return (0);
 	}
 	*numbers = array;
 	return (1);

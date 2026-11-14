@@ -31,6 +31,8 @@ SRCS = push_swap.c \
        benchmark/benchmark.c \
        stack/stack_complex_utils.c \
        stack/stack_complex_utils2.c \
+       parsing/parse_args_utils.c \
+       parsing/validate_args_utils.c \
 
 
 

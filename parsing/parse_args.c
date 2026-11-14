@@ -12,65 +12,38 @@
 
 #include "push_swap.h"
 
-static int	is_bench(char *arg, int *bench)
+int	is_bench(char *arg, int *bench);
+int	set_strategy(char *arg, int *strategy, int *selected);
+
+static int	process_option(char *arg, int *params, int *selected)
 {
-	if (ft_strncmp(arg, "--bench", 8) == 0)
-	{
-		if (*bench)
-			return (0);
-		*bench = 1;
-		return (1);
-	}
-	return (-1);
+	int	result;
+
+	result = is_bench(arg, &params[1]);
+	if (result != -1)
+		return (result);
+	return (set_strategy(arg, &params[0], selected));
 }
 
-static int	set_strategy(char *arg, int *strategy, int *selected)
-{
-	int	new_strategy;
-
-	if (ft_strncmp(arg, "--simple", 9) == 0)
-		new_strategy = SIMPLE;
-	else if (ft_strncmp(arg, "--medium", 9) == 0)
-		new_strategy = MEDIUM;
-	else if (ft_strncmp(arg, "--complex", 10) == 0)
-		new_strategy = COMPLEX;
-	else if (ft_strncmp(arg, "--adaptive", 11) == 0)
-		new_strategy = ADAPTIVE;
-	else
-		return (-1);
-	if (*selected)
-		return (0);
-	*strategy = new_strategy;
-	*selected = 1;
-	return (1);
-}
-
-int	parse_args(int argc, char **argv, int *strategy,
-	int	*bench, int *numbers_start)
+int	parse_args(int argc, char **argv, int *params)
 {
 	int	i;
-	int	result;
 	int	selected;
+	int	result;
 
 	i = 1;
 	selected = 0;
-	*strategy = ADAPTIVE;
-	*bench = 0;
+	params[0] = ADAPTIVE;
+	params[1] = 0;
 	while (i < argc)
 	{
-		result = is_bench(argv[i], bench);
+		result = process_option(argv[i], params, &selected);
 		if (result == 0)
 			return (0);
 		if (result == -1)
-		{
-			result = set_strategy(argv[i], strategy, &selected);
-			if (result == 0)
-				return (0);
-			if (result == -1)
-				break ;
-		}
+			break ;
 		i++;
 	}
-	*numbers_start = i;
+	params[2] = i;
 	return (i < argc);
 }
